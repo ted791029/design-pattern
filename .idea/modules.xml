@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/design-pattern.iml" filepath="$PROJECT_DIR$/design-pattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/hero-fight/hero-fight.iml" filepath="$PROJECT_DIR$/hero-fight/hero-fight.iml" />
+      <module fileurl="file://$PROJECT_DIR$/matchmaking-system/matchmaking-system.iml" filepath="$PROJECT_DIR$/matchmaking-system/matchmaking-system.iml" />
     </modules>
   </component>
 </project>

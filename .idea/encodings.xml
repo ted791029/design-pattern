@@ -3,5 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/matchmaking-system/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/matchmaking-system/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/student-group/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/student-group/src/main/resources" charset="UTF-8" />
   </component>
 </project>

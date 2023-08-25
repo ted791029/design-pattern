@@ -45,4 +45,10 @@ public class Student {
     public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
     }
+
+    @Override
+    public String toString(){
+        return "Name: " + this.name + " Experience: " + this.experience + "y Language: " + this.language
+                + " JobTitle: " + this.jobTitle;
+    }
 }

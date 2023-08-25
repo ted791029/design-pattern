@@ -7,17 +7,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GroupSystemTest {
 
+    private List<Student> students;
+
+    private GroupSystem system;
+
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
+        students = this.studentInit();
     }
 
     @org.junit.jupiter.api.AfterEach
     void tearDown() {
+        students = null;
     }
 
     @org.junit.jupiter.api.Test
-    void givenHasSomeStudent_WhenSystemGroupByLanguage_ThenShouldSuccess(){
-
+    void givenSystemHasSomeStudent_WhenSystemGroupByLanguage_ThenShouldSuccess(){
+        this.system = givenSystemHasSomeStudent();
+        List<Group> groups = whenSystemGroupByLanguage(new LanguageBasedGroupingStrategy());
+        thenShouldSuccess(groups);
     }
 
     private List<Student> studentInit(){
@@ -93,5 +101,18 @@ class GroupSystemTest {
         students.add(new Student("student69", 5, "PHP", "運維工程師"));
         students.add(new Student("student70", 6, "C#", "PM"));
         return students;
+    }
+
+    private GroupSystem givenSystemHasSomeStudent(){
+        return new GroupSystem(this.students);
+    }
+
+    private List<Group> whenSystemGroupByLanguage(LanguageBasedGroupingStrategy strategy){
+        this.system.setStrategy(strategy);
+        return this.system.group();
+    }
+
+    private void thenShouldSuccess(List<Group> groups) {
+        groups.stream().forEach(System.out::println);
     }
 }

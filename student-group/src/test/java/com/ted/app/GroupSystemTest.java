@@ -113,6 +113,11 @@ class GroupSystemTest {
     }
 
     private void thenShouldSuccess(List<Group> groups) {
-        groups.stream().forEach(System.out::println);
+        for(Group group: groups){
+            String language = group.getStudents().get(0).getLanguage();
+            for(Student student: group.getStudents()){
+                assertEquals(student.getLanguage(), language);
+            }
+        }
     }
 }

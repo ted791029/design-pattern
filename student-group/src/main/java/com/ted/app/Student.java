@@ -1,10 +1,10 @@
 package com.ted.app;
 
 public class Student {
-    String name;
-    int experience;
-    String language;
-    String jobTitle;
+    private String name;
+    private int experience;
+    private String language;
+    private  String jobTitle;
 
     public Student(String name, int experience, String language, String jobTitle) {
         this.setName(name);

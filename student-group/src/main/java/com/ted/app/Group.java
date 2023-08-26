@@ -1,10 +1,16 @@
 package com.ted.app;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Group {
-    int number;
-    List<Student> students;
+    private int number;
+    private List<Student> students;
+
+    public Group(int number) {
+        this.setNumber(number);
+        this.setStudents(new ArrayList<>());
+    }
 
     public Group(int number, List<Student> students) {
         this.setNumber(number);
@@ -17,6 +23,24 @@ public class Group {
 
     public void merge(Group group) {
         this.students.addAll(group.students);
+    }
+
+    public void addStudent(Student student) {
+        this.students.add(student);
+    }
+
+    public List<Group> splitBySize(int size) {
+        List<Group> groups = new ArrayList<>();
+        int number = 0;
+        Group group = new Group(number++);
+        for(Student student : students){
+            if(groups.size() == size){
+                groups.add(group);
+                group = new Group(number++);
+            }
+            group.addStudent(student);
+        }
+        return groups;
     }
 
     public int getNumber() {

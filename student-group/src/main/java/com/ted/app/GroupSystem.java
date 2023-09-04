@@ -5,7 +5,7 @@ import java.util.List;
 public class GroupSystem {
     List<Student> students;
 
-    LanguageBasedGroupingStrategy strategy;
+    CutBasedGroupingStrategy strategy;
 
     public GroupSystem(List<Student> students) {
         this.setStudents(students);
@@ -28,11 +28,11 @@ public class GroupSystem {
         this.students = students;
     }
 
-    public LanguageBasedGroupingStrategy getStrategy() {
+    public CutBasedGroupingStrategy getStrategy() {
         return strategy;
     }
 
-    public void setStrategy(LanguageBasedGroupingStrategy strategy) {
+    public void setStrategy(CutBasedGroupingStrategy strategy) {
         this.strategy = strategy;
     }
 }

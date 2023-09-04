@@ -24,8 +24,15 @@ class GroupSystemTest {
     @org.junit.jupiter.api.Test
     void givenSystemHasSomeStudent_WhenSystemGroupByLanguage_ThenShouldSuccess(){
         this.system = givenSystemHasSomeStudent();
-        List<Group> groups = whenSystemGroupByLanguage(new LanguageBasedGroupingStrategy());
-        thenShouldSuccess(groups);
+        List<Group> groups = whenSystemGroupByStrategy(new LanguageBasedGroupingStrategy());
+        thenShouldSuccessWithLanguage(groups);
+    }
+
+    @org.junit.jupiter.api.Test
+    void givenSystemHasSomeStudent_WhenSystemGroupByJobTitle_ThenShouldSuccess(){
+        this.system = givenSystemHasSomeStudent();
+        List<Group> groups = whenSystemGroupByStrategy(new JobTitleBasedGroupingStrategy());
+        thenShouldSuccessWithJobTitle(groups);
     }
 
     private List<Student> studentInit(){
@@ -107,16 +114,25 @@ class GroupSystemTest {
         return new GroupSystem(this.students);
     }
 
-    private List<Group> whenSystemGroupByLanguage(LanguageBasedGroupingStrategy strategy){
+    private List<Group> whenSystemGroupByStrategy(CutBasedGroupingStrategy strategy){
         this.system.setStrategy(strategy);
         return this.system.group();
     }
 
-    private void thenShouldSuccess(List<Group> groups) {
+    private void thenShouldSuccessWithLanguage(List<Group> groups) {
         for(Group group: groups){
             String language = group.getStudents().get(0).getLanguage();
             for(Student student: group.getStudents()){
                 assertEquals(student.getLanguage(), language);
+            }
+        }
+    }
+
+    private void thenShouldSuccessWithJobTitle(List<Group> groups) {
+        for(Group group: groups){
+            String jobTitle = group.getStudents().get(0).getJobTitle();
+            for(Student student: group.getStudents()){
+                assertEquals(student.getJobTitle(), jobTitle);
             }
         }
     }

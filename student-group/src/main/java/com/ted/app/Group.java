@@ -34,12 +34,13 @@ public class Group {
         int number = 0;
         Group group = new Group(number++);
         for(Student student : students){
-            if(groups.size() == size){
+            if(group.size() == size){
                 groups.add(group);
                 group = new Group(number++);
             }
             group.addStudent(student);
         }
+        if(group.size() > 0) groups.add(group);
         return groups;
     }
 

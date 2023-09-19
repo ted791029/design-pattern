@@ -6,6 +6,9 @@
       <list>
         <option value="$PROJECT_DIR$/matchmaking-system/pom.xml" />
         <option value="$PROJECT_DIR$/student-group/pom.xml" />
+        <option value="$PROJECT_DIR$/2.2H-card-game-framwork/pom.xml" />
+        <option value="$PROJECT_DIR$/2.2-student-group/pom.xml" />
+        <option value="$PROJECT_DIR$/2.1H-matchmaking-system/pom.xml" />
       </list>
     </option>
   </component>

@@ -6,9 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="matchmaking-system" />
-        <module name="student-group" />
+        <module name="2-student-group" />
+        <module name="1H-matchmaking-system" />
+        <module name="2.2H-card-game-framwork" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="2.1H-matchmaking-system" target="17" />
+      <module name="2.2-student-group" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

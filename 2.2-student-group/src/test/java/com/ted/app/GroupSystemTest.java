@@ -2,6 +2,9 @@ package com.ted.app;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,24 +14,24 @@ class GroupSystemTest {
 
     private GroupSystem system;
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     void setUp() {
         students = this.studentInit();
     }
 
-    @org.junit.jupiter.api.AfterEach
+    @AfterEach
     void tearDown() {
         students = null;
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void givenSystemHasSomeStudent_WhenSystemGroupByLanguage_ThenShouldSuccess(){
         this.system = givenSystemHasSomeStudent();
         List<Group> groups = whenSystemGroupByStrategy(new LanguageBasedGroupingStrategy());
         thenShouldSuccessWithLanguage(groups);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void givenSystemHasSomeStudent_WhenSystemGroupByJobTitle_ThenShouldSuccess(){
         this.system = givenSystemHasSomeStudent();
         List<Group> groups = whenSystemGroupByStrategy(new JobTitleBasedGroupingStrategy());

@@ -1,19 +1,37 @@
 package ted.com.app.showdown;
 
+import java.util.Scanner;
+
 public abstract class Player {
     private String name;
     private int point;
     private Hand hand;
 
-    public void nameHimsSelf() {
+    public Player() {
+        setHand(new Hand());
+        setPoint(0);
+    }
 
+    public Player(String name) {
+        setName(name);
+        setHand(new Hand());
+        setPoint(0);
+    }
+
+    public void nameHimsSelf(String name) {
+        setName(name);
     }
 
     public void addHandCard(Card card) {
-
+        hand.add(card);
     }
 
-    protected abstract Card show();
+    public void printHand(){
+        System.out.printf("%s的手牌為:\n", name);
+        hand.print();
+    }
+
+    protected abstract Card show(Scanner scanner);
 
     /**
      * getter & setter

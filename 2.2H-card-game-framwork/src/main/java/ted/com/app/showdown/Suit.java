@@ -9,10 +9,21 @@ public enum Suit {
     private String symbol;
 
     Suit(String symbol) {
-        this.symbol = symbol;
+        setSymbol(symbol);
     }
 
     public int showdown(Suit suit) {
         return 0;
+    }
+
+    /**
+     * getter & setter
+     **/
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 }

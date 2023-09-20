@@ -9,8 +9,8 @@ public class Card {
     }
 
     public Card(Suit suit, Rank rank){
-        this.setSuit(suit);
-        this.setRank(rank);
+        setSuit(suit);
+        setRank(rank);
     }
 
     public int showdown(Card card) {
@@ -18,7 +18,11 @@ public class Card {
     }
 
     public boolean isSame(Card card){
-        return this.suit == card.suit && this.rank == card.rank;
+        return suit == card.suit &&rank == card.rank;
+    }
+    @Override
+    public String toString(){
+        return suit.getSymbol() + rank.getSymbol();
     }
 
     /**

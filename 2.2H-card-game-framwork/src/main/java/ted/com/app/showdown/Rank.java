@@ -19,11 +19,30 @@ public enum Rank {
     private int score;
 
     Rank(String symbol, int score) {
-        this.score = score;
-        this.symbol = symbol;
+        setScore(score);
+        setSymbol(symbol);
     }
 
     public int showdown(Rank rank) {
         return 0;
+    }
+
+    /**
+     * getter & setter
+     **/
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

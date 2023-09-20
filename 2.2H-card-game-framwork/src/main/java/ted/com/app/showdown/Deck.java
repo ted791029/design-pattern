@@ -6,15 +6,22 @@ public class Deck {
     private Stack<Card> cards;
 
     public Deck() {
-        this.init();
+        init();
     }
 
     public void shuffle() {
-
+        for (int i = 0; i < cards.size(); i++) {
+            int targetIndex = (int) (Math.random() * (cards.size() - i));
+            swap(i, targetIndex);
+        }
     }
 
     public Card drawCard() {
-        return null;
+        return cards.pop();
+    }
+
+    public int size(){
+        return cards.size();
     }
 
     private void init() {
@@ -24,7 +31,13 @@ public class Deck {
                 stack.add(new Card(suit, rank));
             }
         }
-        this.setCards(stack);
+        setCards(stack);
+    }
+
+    private void swap(int index1, int index2) {
+        Card card = cards.get(index1);
+        cards.set(index1, cards.get(index2));
+        cards.set(index2, card);
     }
 
     /**

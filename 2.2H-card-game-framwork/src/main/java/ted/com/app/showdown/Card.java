@@ -4,24 +4,28 @@ public class Card {
     private Rank rank;
     private Suit suit;
 
-    public Card(){
+    public Card() {
 
     }
 
-    public Card(Suit suit, Rank rank){
+    public Card(Suit suit, Rank rank) {
         setSuit(suit);
         setRank(rank);
     }
 
     public int showdown(Card card) {
-        return 0;
+        if (rank == card.rank) {
+            return suit.showdown(card.suit);
+        }
+        return rank.showdown(card.rank);
     }
 
-    public boolean isSame(Card card){
-        return suit == card.suit &&rank == card.rank;
+    public boolean isSame(Card card) {
+        return suit == card.suit && rank == card.rank;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return suit.getSymbol() + rank.getSymbol();
     }
 

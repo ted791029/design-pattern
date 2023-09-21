@@ -24,7 +24,7 @@ public enum Rank {
     }
 
     public int showdown(Rank rank) {
-        return 0;
+        return score > rank.score ? 1 : -1;
     }
 
     /**

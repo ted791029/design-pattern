@@ -20,7 +20,7 @@ public class Deck {
         return cards.pop();
     }
 
-    public int size(){
+    public int size() {
         return cards.size();
     }
 

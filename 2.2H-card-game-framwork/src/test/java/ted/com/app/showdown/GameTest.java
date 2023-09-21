@@ -20,6 +20,7 @@ class GameTest {
     @BeforeEach
     void setUp() {
         game = new Showdown();
+        givenGameHasPlayersAndIsNamed();
     }
 
     @AfterEach
@@ -64,83 +65,77 @@ class GameTest {
 
     @Test
     public void givenGameHasPlayersAndShuffledDeck_WhenPlayerDrawCard_ThenPlayerHasHandAndDeckIsEmpty() {
-        givenGameHasPlayersAndShuffledDeck();
+        givenShuffledDeck();
 
         whenPlayerDrawCard();
 
-        int HAND_SIZE = 13;
-        int DECK_IS_EMPTY = 0;
+        final int HAND_SIZE = 13;
+        final int DECK_IS_EMPTY = 0;
         thenPlayerHasHandAndDeckIsEmpty(HAND_SIZE, DECK_IS_EMPTY);
 
     }
 
     @Test
-    public void givenPlayerHasHand_WhenPlayerShowCard_ThenTableHasFourCardAndHandIsDecreasing() {
+    public void givenPlayerHasHand_WhenPlayerShowCard_ThenDiscardPileHasFourCardAndHandIsDecreasing() {
         givenPlayerHasHand();
-        int[] indexArr = {2, 9, 12, 8};
-        whenPlayerShowCard(indexArr);
-        int DISCARD_PILE_SIZE = 4;
-        int HAND_SIZE = 12;
+
+        int[] countArr = {3, 10, 13, 9};
+        whenPlayerShowCard(countArr);
+
+        final int DISCARD_PILE_SIZE = 4;
+        final int HAND_SIZE = 12;
         thenDiscardPileHasFourCardAndHandIsDecreasing(DISCARD_PILE_SIZE, HAND_SIZE);
 
     }
 
-    private int givenHasPlayers() {
-        int NUMBER_OF_PLAYERS = 2;
-        return NUMBER_OF_PLAYERS;
+    @Test
+    public void givenDiscardPileHasFourCard_WhenShowdown_ThenGetHighestPlayer() {
+        Card spadeJack = new Card(Suit.SPADE, Rank.JACK);
+        Card diamondFor = new Card(Suit.DIAMOND, Rank.FOUR);
+        Card clubQueen = new Card(Suit.CLUB, Rank.QUEEN);
+        Card heartEight = new Card(Suit.HEART, Rank.EIGHT);
+        givenDiscardPileHasFourCard(spadeJack, diamondFor, clubQueen, heartEight);
+
+        Player highest = whenShowdown();
+
+        thenGetHighestPlayer(highest);
     }
 
-    private void givenGameHasPlayers(Player... player) {
-        game.setPlayers(new ArrayList<>(List.of(player)));
+    @Test
+    public void givenHightestPlayerIsPlayerA_WhenAddPoint_ThenPlayerAGetPoint() {
+        Player hightestPlay = givenHightestPlayer();
+
+        final int POINT = 1;
+        final int CURRENT_POINT = 2;
+        whenAddPoint(hightestPlay, CURRENT_POINT, POINT);
+
+        thenPlayerAGetPoint(hightestPlay, CURRENT_POINT, POINT);
     }
 
-    private void giveDeckInOrder() {
-        game.setDeck(new Deck());
+    @Test
+    public void givenGameIsOver_WhenFindWinner_ThenGetWinner() {
+        givenGameIsOver();
+        Player winner = whenFindWinner();
+        thenGetWinner(winner);
     }
 
-    private void givenGameHasPlayersAndShuffledDeck() {
-        Player playerA = new HumanPlayer();
-        Player playerB = new HumanPlayer();
-        Player playerC = new HumanPlayer();
-        Player playerD = new HumanPlayer();
-        givenGameHasPlayers(playerA, playerB, playerC, playerD);
-        giveDeckInOrder();
-        whenShuffle();
-    }
-
-    private void givenPlayerHasHand() {
+    private void givenGameHasPlayersAndIsNamed() {
         Player playerA = new HumanPlayer("大寶");
         Player playerB = new HumanPlayer("二寶");
         Player playerC = new HumanPlayer("三寶");
         Player playerD = new HumanPlayer("四寶");
         givenGameHasPlayers(playerA, playerB, playerC, playerD);
-        initPlayersHand();
+    }
+
+    private int givenHasPlayers() {
+        final int NUMBER_OF_PLAYERS = 2;
+        return NUMBER_OF_PLAYERS;
     }
 
     private void whenSelsctNumberOfPlayers(int numberOfPlayers) {
         String input = toInputString(String.valueOf(numberOfPlayers));
         scanner = systemSetIn(input);
         game.selectNumberOfPlayers(scanner);
-    }
-
-    private void whenShuffle() {
-        game.getDeck().shuffle();
-    }
-
-    private void whenPlayerNameHimSelf(String[] names) {
-        String input = toInputString(names);
-        scanner = systemSetIn(input);
-        game.playerNameHimSelf(scanner);
-    }
-
-    private void whenPlayerDrawCard() {
-        game.playerDrawCard();
-    }
-
-    private void whenPlayerShowCard(int[] indexArr) {
-        String input = toInputString(indexArr);
-        scanner = systemSetIn(input);
-        game.show(scanner);
     }
 
     private void thenHasTwoHumanAndTwoAI(List<Player> players) {
@@ -150,12 +145,30 @@ class GameTest {
         assertTrue(players.get(2) instanceof AIPlayer);
     }
 
+    private void givenGameHasPlayers(Player... players) {
+        game.setPlayers(new ArrayList<>(List.of(players)));
+    }
+
+    private void whenPlayerNameHimSelf(String[] names) {
+        String input = toInputString(names);
+        scanner = systemSetIn(input);
+        game.playerNameHimSelf(scanner);
+    }
+
     private void thenNamedSuccess(String[] names) {
         for (int i = 0; i < game.getPlayers().size(); i++) {
             Player player = game.getPlayers().get(i);
             String name = names[i];
             assertEquals(name, player.getName());
         }
+    }
+
+    private void giveDeckInOrder() {
+        game.setDeck(new Deck());
+    }
+
+    private void whenShuffle() {
+        game.shuffle();
     }
 
     private void thenGetShuffledDeck(Deck deck) {
@@ -186,6 +199,15 @@ class GameTest {
         assertFalse(count == 5);
     }
 
+    private void givenShuffledDeck() {
+        giveDeckInOrder();
+        whenShuffle();
+    }
+
+    private void whenPlayerDrawCard() {
+        game.playerDrawCard();
+    }
+
     private void thenPlayerHasHandAndDeckIsEmpty(int handSize, int deckSize) {
         //牌堆為空
         assertEquals(game.getDeck().size(), deckSize);
@@ -196,45 +218,7 @@ class GameTest {
         }
     }
 
-    private void thenDiscardPileHasFourCardAndHandIsDecreasing(int discardPileSize, int handSize) {
-        assertEquals(game.getDiscardPile().size(), discardPileSize);
-
-        assertEquals(game.getDiscardPile().getCards().get(0).toString(), new Card(Suit.SPADE, Rank.JACK).toString());
-        assertEquals(game.getDiscardPile().getCards().get(1).toString(), new Card(Suit.DIAMOND, Rank.FOUR).toString());
-        assertEquals(game.getDiscardPile().getCards().get(2).toString(), new Card(Suit.CLUB, Rank.QUEEN).toString());
-        assertEquals(game.getDiscardPile().getCards().get(3).toString(), new Card(Suit.HEART, Rank.EIGHT).toString());
-
-        for (int i = 0; i < game.getPlayers().size(); i++) {
-            Player player = game.getPlayers().get(i);
-            assertEquals(player.getHand().size(), handSize);
-        }
-    }
-
-    private String toInputString(String... data) {
-        String input = "";
-        for (int i = 0; i < data.length; i++) {
-            input += data[i];
-            if (i < data.length - 1) input += "\n";
-        }
-        return input;
-    }
-
-    private String toInputString(int... data) {
-        String input = "";
-        for (int i = 0; i < data.length; i++) {
-            input += data[i];
-            if (i < data.length - 1) input += "\n";
-        }
-        return input;
-    }
-
-    private Scanner systemSetIn(String input) {
-        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inputStream);
-        return new Scanner(System.in);
-    }
-
-    private void initPlayersHand() {
+    private void givenPlayerHasHand() {
         List<Card> cards = new ArrayList<>(
                 List.of(
                         new Card(Suit.CLUB, Rank.FOUR),
@@ -318,6 +302,92 @@ class GameTest {
         hand = new Hand();
         hand.setCards(cards);
         game.getPlayers().get(3).setHand(hand);
+    }
+
+    private void whenPlayerShowCard(int[] indexArr) {
+        String input = toInputString(indexArr);
+        scanner = systemSetIn(input);
+        game.show(scanner);
+    }
+
+    private void thenDiscardPileHasFourCardAndHandIsDecreasing(int discardPileSize, int handSize) {
+        assertEquals(game.getDiscardPile().size(), discardPileSize);
+
+        assertEquals(game.getDiscardPile().getCards().get(0).toString(), new Card(Suit.SPADE, Rank.JACK).toString());
+        assertEquals(game.getDiscardPile().getCards().get(1).toString(), new Card(Suit.DIAMOND, Rank.FOUR).toString());
+        assertEquals(game.getDiscardPile().getCards().get(2).toString(), new Card(Suit.CLUB, Rank.QUEEN).toString());
+        assertEquals(game.getDiscardPile().getCards().get(3).toString(), new Card(Suit.HEART, Rank.EIGHT).toString());
+
+        for (int i = 0; i < game.getPlayers().size(); i++) {
+            Player player = game.getPlayers().get(i);
+            assertEquals(player.getHand().size(), handSize);
+        }
+    }
+
+    private void givenDiscardPileHasFourCard(Card... cards) {
+        game.getDiscardPile().add(new ArrayList<>(List.of(cards)));
+    }
+
+    private Player whenShowdown() {
+        final int CARD_SIZE = 4;
+        List<Card> cards = game.getDiscardPile().getTop(CARD_SIZE);
+        return game.showdown(cards);
+    }
+
+    private void thenGetHighestPlayer(Player player) {
+        assertEquals(game.getPlayers().get(2).getName(), player.getName());
+    }
+
+    private Player givenHightestPlayer() {
+        return game.getPlayers().get(0);
+    }
+
+    private void whenAddPoint(Player hightestPlayer, int currentPoint, int point) {
+        hightestPlayer.setPoint(currentPoint);
+        game.addPoint(hightestPlayer, point);
+    }
+
+    private void thenPlayerAGetPoint(Player hightPlayer, int currentPoint, int point) {
+        assertEquals(hightPlayer.getPoint(), currentPoint + point);
+    }
+
+    private void givenGameIsOver() {
+        game.getPlayers().get(0).setPoint(2);
+        game.getPlayers().get(1).setPoint(5);
+        game.getPlayers().get(2).setPoint(3);
+        game.getPlayers().get(3).setPoint(3);
+    }
+
+    private Player whenFindWinner() {
+        return game.findWinner();
+    }
+
+    private void thenGetWinner(Player winner) {
+        assertEquals(game.getPlayers().get(1).getName(), winner.getName());
+    }
+
+    private String toInputString(String... data) {
+        String input = "";
+        for (int i = 0; i < data.length; i++) {
+            input += data[i];
+            if (i < data.length - 1) input += "\n";
+        }
+        return input;
+    }
+
+    private String toInputString(int... data) {
+        String input = "";
+        for (int i = 0; i < data.length; i++) {
+            input += data[i];
+            if (i < data.length - 1) input += "\n";
+        }
+        return input;
+    }
+
+    private Scanner systemSetIn(String input) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+        return new Scanner(System.in);
     }
 
 }

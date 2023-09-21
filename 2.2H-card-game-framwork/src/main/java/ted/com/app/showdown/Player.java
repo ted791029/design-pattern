@@ -18,18 +18,27 @@ public abstract class Player {
         setPoint(0);
     }
 
-    public void nameHimsSelf(String name) {
-        setName(name);
-    }
-
     public void addHandCard(Card card) {
         hand.add(card);
     }
 
-    public void printHand(){
-        System.out.printf("%s的手牌為:\n", name);
-        hand.print();
+    public void addPoint(int point) {
+        this.point += point;
     }
+
+    public boolean handIsEmpty() {
+        return hand.isEmpty();
+    }
+
+    public Player findWinner(Player player) {
+        return point > player.point ? this : player;
+    }
+
+    public void nameHimsSelf(String name) {
+        setName(name);
+    }
+
+    protected abstract void printHand();
 
     protected abstract Card show(Scanner scanner);
 

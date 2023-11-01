@@ -15,7 +15,7 @@ public class WaterFireConllisionHandler extends CollisionHandler {
     }
 
     @Override
-    protected void doHandling(Coord x1, Coord x2, Sprite[] sprites) {
+    protected void doHandling(Coord x1, Coord x2) {
 
     }
 }

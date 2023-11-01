@@ -1,11 +1,19 @@
 package com.ted.app.Sprite;
 
+import com.ted.app.World;
+
 public class Sprite {
     private Coord coord;
     private Character display;
 
+    private World world;
+
     public Sprite(int x){
         coord = new Coord(x);
+    }
+
+    public void removeFromWord(){
+        world.removeSprite(this);
     }
 
     public Coord getCoord() {

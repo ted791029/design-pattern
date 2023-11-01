@@ -1,11 +1,11 @@
 package com.ted.app.ConllisonHandler;
 
-import com.ted.app.ConllisonHandler.CollisionHandler;
 import com.ted.app.Sprite.Coord;
 import com.ted.app.Sprite.Sprite;
 
-public class FireHeroConllisionHandler extends CollisionHandler {
-    public FireHeroConllisionHandler(CollisionHandler next) {
+public class SameSpriteCollisionHandler extends CollisionHandler{
+
+    public SameSpriteCollisionHandler(CollisionHandler next) {
         super(next);
     }
 

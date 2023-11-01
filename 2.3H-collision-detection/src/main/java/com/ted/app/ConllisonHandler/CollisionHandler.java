@@ -14,14 +14,14 @@ public abstract class CollisionHandler {
         Sprite c1 = sprites[x1.getX()];
         Sprite c2 = sprites[x1.getX()];
         if(match(c1, c2)){
-            doHandling(x1, x2, sprites);
+            doHandling(x1, x2);
         }else if(next != null){
             next.handle(x1, x2, sprites);
         }
     }
 
     protected abstract boolean match(Sprite c1, Sprite c2);
-    protected abstract void doHandling(Coord x1, Coord x2, Sprite[] sprites);
+    protected abstract void doHandling(Coord x1, Coord x2);
 
     public CollisionHandler getNext() {
         return next;

@@ -7,7 +7,7 @@ public class Coord {
         setX(x);
     }
 
-    public int getX(){
+    public int getX() {
         return x;
     }
 

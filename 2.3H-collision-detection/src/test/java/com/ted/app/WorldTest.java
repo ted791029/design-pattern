@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Scanner;
 
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class WorldTest {
 
@@ -31,43 +30,75 @@ class WorldTest {
     }
 
     @Test
-    void givenHasTwoCoordWith0And5_WhenCollision_ThenWaterAndFireCollide() {
+    void givenHasDifferentSprites_WhenCollision_ThenCollide() {
+        int[] nums = null;
         //Hero, Fire
-        world = initWorld();
-        int[] nums = new int[] {0, 5};
+        world = Main.initWorld();
+        nums = new int[]{0, 5};
         whenCollision(nums);
         thenHerotoFire(nums);
 
         //Hero, Water
-        world = initWorld();
-        nums = new int[] {0, 10};
+        world = Main.initWorld();
+        nums = new int[]{0, 10};
         whenCollision(nums);
         thenHerotoWater(nums);
 
-        //Hero, Water
-        world = initWorld();
-        nums = new int[] {0, 10};
+        //Water, Fire
+        world = Main.initWorld();
+        nums = new int[] {5, 10};
         whenCollision(nums);
         thenWatertoFire(nums);
 
         //Fire, Hero
-        world = initWorld();
+        world = Main.initWorld();
         nums = new int[] {5, 0};
         whenCollision(nums);
-        thenHerotoFire(nums);
+        thenFiretoHero(nums);
 
         //Water, Hero
-        world = initWorld();
+        world = Main.initWorld();
         nums = new int[] {10, 0};
         whenCollision(nums);
-        thenHerotoWater(nums);
+        thenWatertoHero(nums);
     }
 
-    private void whenCollision(int[] nums){
+    @Test
+    void givenHasSameSprites_WhenCollision_ThenMoveFailed() {
+        int[] nums = null;
+        Sprite c1 = null;
+        Sprite c2 = null;
+
+        //Hero, Hero
+        world = Main.initWorld();
+        nums = new int[] {0, 15};
+        whenCollision(nums);
+        c1 = world.getSprite(nums[0]);
+        c2 = world.getSprite(nums[1]);
+        thenMoveFailed(nums, c1, c2);
+
+        //Fire, Fire
+        world = Main.initWorld();
+        nums = new int[]{5, 20};
+        whenCollision(nums);
+        c1 = world.getSprite(nums[0]);
+        c2 = world.getSprite(nums[1]);
+        thenMoveFailed(nums, c1, c2);
+
+        //Water, Water
+        world = Main.initWorld();
+        nums = new int[]{10, 25};
+        whenCollision(nums);
+        c1 = world.getSprite(nums[0]);
+        c2 = world.getSprite(nums[1]);
+        thenMoveFailed(nums, c1, c2);
+    }
+
+    private void whenCollision(int[] nums) {
         world.moveSprite(nums[0], nums[1]);
     }
 
-    private void thenHerotoFire(int[] nums){
+    private void thenHerotoFire(int[] nums) {
         //火移除 & 英雄移到火的位置
         Sprite sprite = world.getSprite(nums[1]);
         Hero hero = assertInstanceOf(sprite, Hero.class);
@@ -75,7 +106,7 @@ class WorldTest {
         assertTrue(hero.getHp() == 20);
     }
 
-    private void thenFiretoHero(int[] nums){
+    private void thenFiretoHero(int[] nums) {
         //火移除
         assertNull(world.getSprite(nums[0]));
         //英雄位置不變
@@ -85,7 +116,7 @@ class WorldTest {
         assertTrue(hero.getHp() == 20);
     }
 
-    private void thenHerotoWater(int[] nums){
+    private void thenHerotoWater(int[] nums) {
         //水移除 & 英雄移到水的位置
         Sprite sprite = world.getSprite(nums[1]);
         Hero hero = assertInstanceOf(sprite, Hero.class);
@@ -93,7 +124,7 @@ class WorldTest {
         assertTrue(hero.getHp() == 40);
     }
 
-    private void thenWatertoHero(int[] nums){
+    private void thenWatertoHero(int[] nums) {
         //水移除
         assertNull(world.getSprite(nums[0]));
         //英雄位置不變
@@ -103,31 +134,18 @@ class WorldTest {
         assertTrue(hero.getHp() == 40);
     }
 
-    private void thenWatertoFire(int[] nums){
+    private void thenWatertoFire(int[] nums) {
         //水移除
         assertNull(world.getSprite(nums[0]));
         //火移除
         assertNull(world.getSprite(nums[1]));
     }
 
-    private World initWorld() {
-        Sprite[] sprites = {
-                new Hero(0), null, null, null, null,
-                new Fire(5), null, null, null, null,
-                new Water(10), null, null, null, null,
-                new Hero(15), null, null, null, null,
-                new Fire(20), null, null, null, null,
-                new Water(25), null, null, null, null,
-        };
-
-        CollisionHandler handler = new WaterHeroConllisionHandler(
-                new WaterFireConllisionHandler(
-                        new FireHeroConllisionHandler(
-                                new SameSpriteCollisionHandler(null)
-                        )
-                )
-        );
-        return new World(sprites, handler);
+    private void thenMoveFailed(int[] nums, Sprite c1, Sprite c2){
+        Sprite sprite1 = world.getSprite(nums[0]);
+        Sprite sprite2 = world.getSprite(nums[1]);
+        assertEquals(sprite1, c1);
+        assertEquals(sprite2, c2);
     }
 
     private <T> T assertInstanceOf(Object obj, Class<T> expectedType) {

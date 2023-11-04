@@ -1,6 +1,7 @@
 package com.ted.app;
 
 import com.ted.app.ConllisonHandler.CollisionHandler;
+import com.ted.app.Sprite.Coord;
 import com.ted.app.Sprite.Sprite;
 
 public class World {
@@ -8,13 +9,21 @@ public class World {
     private CollisionHandler handler;
 
 
-    public World(Sprite[] sprites, CollisionHandler handler){
-        setSprites(sprites);
+    public World(CollisionHandler handler){
+        sprites = new Sprite[30];
         setHandler(handler);
     }
 
-    public void moveSprite(int x1, int x2){
+    public void addSprite(Sprite sprite){
+        sprites[sprite.getCoord().getX()] = sprite;
+    }
 
+    public void moveSprite(int x1, int x2){
+        Sprite c1 = getSprite(x1);
+        Sprite c2 = getSprite(x2);
+        if(c2 != null){
+            handler.handle(c1, c2);
+        }
     }
 
     public void removeSprite(Sprite sprite){

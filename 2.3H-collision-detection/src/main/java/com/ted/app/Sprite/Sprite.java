@@ -8,11 +8,12 @@ public class Sprite {
 
     private World world;
 
-    public Sprite(int x){
+    public Sprite(int x, World world) {
         coord = new Coord(x);
+        setWorld(world);
     }
 
-    public void removeFromWord(){
+    public void removeFromWord() {
         world.removeSprite(this);
     }
 
@@ -30,5 +31,13 @@ public class Sprite {
 
     public void setDisplay(Character display) {
         this.display = display;
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public void setWorld(World world) {
+        this.world = world;
     }
 }

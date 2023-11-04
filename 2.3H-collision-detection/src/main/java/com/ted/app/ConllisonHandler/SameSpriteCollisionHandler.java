@@ -8,11 +8,11 @@ import com.ted.app.Sprite.Water;
 public class SameSpriteCollisionHandler extends CollisionHandler {
 
     public SameSpriteCollisionHandler(CollisionHandler next) {
-        super(next);
+        super(next, null, null);
     }
 
     @Override
-    protected boolean match(Sprite c1, Sprite c2) {
+    protected boolean match(Sprite c1, Sprite c2){
         if (c1.getClass() == c2.getClass()) {
             return true;
         } else {
@@ -23,10 +23,5 @@ public class SameSpriteCollisionHandler extends CollisionHandler {
     @Override
     protected void doHandling(Sprite c1, Sprite c2) {
         System.out.println("移動失敗");
-    }
-
-    @Override
-    protected Sprite[] initSprites(Sprite c1, Sprite c2) {
-        return null;
     }
 }

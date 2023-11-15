@@ -10,12 +10,14 @@
         <module name="2.2H-card-game-framwork" />
         <module name="2-student-group" />
         <module name="3H-collision-detection" />
+        <module name="B-Big2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="2.1H-matchmaking-system" target="17" />
       <module name="2.2-student-group" target="17" />
       <module name="2.3H-collision-detection" target="17" />
+      <module name="2.B-Big2" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

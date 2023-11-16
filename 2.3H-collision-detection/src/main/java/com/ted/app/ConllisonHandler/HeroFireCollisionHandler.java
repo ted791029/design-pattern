@@ -2,8 +2,8 @@ package com.ted.app.ConllisonHandler;
 
 import com.ted.app.Sprite.*;
 
-public class HeroFireConllisionHandler extends CollisionHandler {
-    public HeroFireConllisionHandler(CollisionHandler next) {
+public class HeroFireCollisionHandler extends CollisionHandler {
+    public HeroFireCollisionHandler(CollisionHandler next) {
         super(next, Hero.class, Fire.class);
     }
 

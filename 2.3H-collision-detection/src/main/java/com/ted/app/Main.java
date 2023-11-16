@@ -38,9 +38,9 @@ public class Main {
     public static World initWorld(){
         Sprite[] sprites = {};
 
-        CollisionHandler handler = new HeroWaterConllisionHandler(
-                new FireWaterConllisionHandler(
-                        new HeroFireConllisionHandler(
+        CollisionHandler handler = new HeroWaterCollisionHandler(
+                new FireWaterCollisionHandler(
+                        new HeroFireCollisionHandler(
                                 new SameSpriteCollisionHandler(null)
                         )
                 )

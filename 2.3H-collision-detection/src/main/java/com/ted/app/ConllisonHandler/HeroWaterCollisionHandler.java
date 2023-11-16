@@ -5,8 +5,8 @@ import com.ted.app.Sprite.Hero;
 import com.ted.app.Sprite.Sprite;
 import com.ted.app.Sprite.Water;
 
-public class HeroWaterConllisionHandler extends CollisionHandler {
-    public HeroWaterConllisionHandler(CollisionHandler next) {
+public class HeroWaterCollisionHandler extends CollisionHandler {
+    public HeroWaterCollisionHandler(CollisionHandler next) {
         super(next, Hero.class, Water.class);
     }
 

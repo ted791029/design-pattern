@@ -4,8 +4,8 @@ import com.ted.app.Sprite.Fire;
 import com.ted.app.Sprite.Sprite;
 import com.ted.app.Sprite.Water;
 
-public class FireWaterConllisionHandler extends CollisionHandler {
-    public FireWaterConllisionHandler(CollisionHandler next) {
+public class FireWaterCollisionHandler extends CollisionHandler {
+    public FireWaterCollisionHandler(CollisionHandler next) {
         super(next, Fire.class, Water.class);
     }
 

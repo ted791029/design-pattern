@@ -4,34 +4,57 @@ import com.ted.app.Card.Card;
 import com.ted.app.Deck;
 import com.ted.app.Hand;
 
+import java.util.List;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public abstract class Player {
 
     private Hand hand;
     private String name;
 
-    public boolean isHandEmpty(){
-        return false;
+    private int no;
+
+    public Player (int no){
+        setNo(no);
     }
 
-    public void addHand(Card card){
-
+    public boolean isHandEmpty() {
+        return hand.isEmpty();
     }
 
-    public Card deal(Deck deck){
+    public void addHand(Card card) {
+        hand.add(card);
+    }
+
+    public Card deal(Deck deck) {
         return null;
     }
 
-    public void nameSelf(){
-
+    public List<Card> handPlay(List<Integer> indexes){
+        return hand.play(indexes);
+    }
+    public void nameSelf(String name) {
+        setName(name);
     }
 
-    public void pass(){
-
+    public boolean nameValid(String name){
+        Pattern p = Pattern.compile("A-Z+a-z+0-9");
+        Matcher m = p.matcher(name);
+        return m.matches();
     }
 
-    public abstract void play();
+    public abstract List<Card> play(Scanner scanner);
 
-    /**getter & setter**/
+    public void showHand(){
+        hand.show();
+    }
+
+
+    /**
+     * getter & setter
+     **/
     public Hand getHand() {
         return hand;
     }
@@ -46,5 +69,13 @@ public abstract class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getNo() {
+        return no;
+    }
+
+    public void setNo(int no) {
+        this.no = no;
     }
 }

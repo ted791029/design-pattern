@@ -3,6 +3,7 @@ package com.ted.app;
 import com.ted.app.Player.Player;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Big2 {
     Deck deck;
@@ -29,7 +30,7 @@ public class Big2 {
 
     }
 
-    private void playersNameSelf(){
+    public void playersNameSelf(Scanner scanner){
 
     }
 

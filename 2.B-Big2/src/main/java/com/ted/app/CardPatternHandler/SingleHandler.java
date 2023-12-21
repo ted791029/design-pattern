@@ -17,7 +17,7 @@ public class SingleHandler extends CardPatternHandler{
     }
 
     @Override
-    protected boolean match(List<Card> playCards) {
+    public boolean match(List<Card> playCards) {
         boolean sizeValid = playCards.size() == 1;
         return sizeValid;
     }

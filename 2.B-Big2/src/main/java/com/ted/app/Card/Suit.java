@@ -2,10 +2,10 @@ package com.ted.app.Card;
 
 public enum Suit {
 
-    SPADE("黑桃", 3),
-    HEART("愛心", 2),
-    DIAMOND("菱形", 1),
-    CLUB("梅花", 0);
+    SPADE("S", 3),
+    HEART("H", 2),
+    DIAMOND("D", 1),
+    CLUB("C", 0);
 
     private String symbol;
     private int score;

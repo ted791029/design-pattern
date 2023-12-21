@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 public class PlayRule {
-    private Round round;
 
     private CardPatternHandler handler;
 
@@ -18,17 +17,32 @@ public class PlayRule {
         handlerInit();
     }
 
-    public boolean isValid(List<Card> playCards, Optional<CardPattern> playPatternOp){
+    public boolean isValid(Optional<CardPattern> playPattern, Round round){
         Optional<CardPattern> topPlayOp =  round.getTopPlay();
-        if(playPatternOp.isEmpty()) return false;
-        if(round.getCount() == 1 && topPlayOp.isEmpty()){
-            return isContainClubsThree(playCards);
-        }else {
-            CardPattern pattern = playPatternOp.get();
-            CardPattern topPlay = topPlayOp.get();
-            if (pattern.getClass() != topPlay.getClass()) return false;
-            return pattern.compare(topPlay);
+        if(playPattern.isEmpty()) {
+            System.out.printf("此牌型不合法，請再嘗試一次。\n");
+            return false;
         }
+        if(round.getCount() == 1 && topPlayOp.isEmpty()){
+            if(!isContainClubsThree(playPattern.get().getCards())){
+                System.out.printf("首次出牌需包含梅花3。\n");
+                return false;
+            }
+            return true;
+        }else {
+            if(topPlayOp.isEmpty()) return true;
+            CardPattern pattern = playPattern.get();
+            CardPattern topPlay = topPlayOp.get();
+            if (pattern.getClass() != topPlay.getClass()) {
+                System.out.printf("目前無法出此類牌型。\n");
+                return false;
+            }
+            if(!pattern.compare(topPlay)){
+                System.out.printf("牌型需大於檯面。\n");
+                return false;
+            }
+        }
+        return true;
     }
 
     public Optional<CardPattern> getPlayPatternOp(List<Card> playCards){
@@ -56,13 +70,6 @@ public class PlayRule {
     }
 
     /**getter & setter**/
-    public Round getRound() {
-        return round;
-    }
-
-    public void setRound(Round round) {
-        this.round = round;
-    }
     public CardPatternHandler getHandler() {
         return handler;
     }

@@ -18,6 +18,10 @@ public class Card {
         return rank.compare(card.rank);
     }
 
+    public boolean equal(Card card){
+        return rank == card.rank && suit == card.suit;
+    }
+
     public int getRankScore(){
         return rank.getScore();
     }

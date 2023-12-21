@@ -13,11 +13,20 @@ public class Deck {
         init();
     }
 
+
+    public Card deal(){
+        return cards.pop();
+    }
+
     public void shuffle(){
         for (int i = 0; i < cards.size(); i++) {
             int targetIndex = (int) (Math.random() * (cards.size() - i));
             swap(i, targetIndex);
         }
+    }
+
+    public int size(){
+        return cards.size();
     }
 
     private void init(){

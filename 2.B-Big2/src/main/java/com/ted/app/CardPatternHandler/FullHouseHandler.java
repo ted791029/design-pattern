@@ -14,7 +14,7 @@ public class FullHouseHandler extends CardPatternHandler {
     }
 
     @Override
-    protected boolean match(List<Card> playCards) {
+    public boolean match(List<Card> playCards) {
         boolean sizeValid = playCards.size() == 5;
         boolean formatValid = pattenRankFormatValid(playCards);
         return sizeValid && formatValid;

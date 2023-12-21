@@ -1,10 +1,12 @@
 package com.ted.app.Player;
 
 import com.ted.app.Card.Card;
+import com.ted.app.CardPattern.CardPattern;
 import com.ted.app.Deck;
 import com.ted.app.Hand;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,6 +20,7 @@ public abstract class Player {
 
     public Player (int no){
         setNo(no);
+        hand = new Hand();
     }
 
     public boolean isHandEmpty() {
@@ -28,12 +31,21 @@ public abstract class Player {
         hand.add(card);
     }
 
-    public Card deal(Deck deck) {
-        return null;
+    public void deal(Deck deck) {
+        Card card = deck.deal();
+        addHand(card);
+    }
+
+    public boolean handHasTheCard(Card card){
+        return hand.hasTheCard(card);
     }
 
     public List<Card> handPlay(List<Integer> indexes){
         return hand.play(indexes);
+    }
+
+    public void handRemove(List<Card> playCards){
+        hand.remove(playCards);
     }
     public void nameSelf(String name) {
         setName(name);
@@ -45,7 +57,7 @@ public abstract class Player {
         return m.matches();
     }
 
-    public abstract List<Card> play(Scanner scanner);
+    public abstract List<Card> play(Scanner scanner, Optional<CardPattern> topPlay);
 
     public void showHand(){
         hand.show();

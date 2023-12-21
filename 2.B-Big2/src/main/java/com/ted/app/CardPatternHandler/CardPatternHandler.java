@@ -23,7 +23,7 @@ public abstract class CardPatternHandler {
         return Optional.empty();
     }
 
-    protected abstract boolean match(List<Card> playCards);
+    public abstract boolean match(List<Card> playCards);
 
     protected abstract Optional<CardPattern> doHandling(List<Card> playCards);
 

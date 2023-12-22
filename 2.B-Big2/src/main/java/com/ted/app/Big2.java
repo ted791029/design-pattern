@@ -16,14 +16,17 @@ public class Big2 {
     private List<Round> rounds;
     private PlayRule playRule;
     private AIPlayHandler aiPlayHandler;
+    private boolean isShuffle;
 
     private final int PLAYER_SIZE = 4;
 
-    public Big2() {
+    public Big2(boolean isShuffle, Optional<Deck> deck) {
         rounds = new ArrayList<>();
-        deck = new Deck();
-        playRule = new PlayRule();
-        aiPlayHandler = playHandlerInit();
+        if(deck.isEmpty()) setDeck(new Deck());
+        else setDeck(deck.get());
+        setPlayRule(new PlayRule());
+        setAiPlayHandler(playHandlerInit());
+        setShuffle(isShuffle);
     }
 
     public void start(Scanner scanner) {
@@ -76,7 +79,7 @@ public class Big2 {
     private void init(Scanner scanner) {
         selectNumberOfPlayers(scanner);
         playersNameSelf(scanner);
-        deck.shuffle();
+        if(isShuffle) deck.shuffle();
         deal();
     }
 
@@ -145,5 +148,29 @@ public class Big2 {
 
     public void setRounds(List<Round> rounds) {
         this.rounds = rounds;
+    }
+
+    public PlayRule getPlayRule() {
+        return playRule;
+    }
+
+    public void setPlayRule(PlayRule playRule) {
+        this.playRule = playRule;
+    }
+
+    public AIPlayHandler getAiPlayHandler() {
+        return aiPlayHandler;
+    }
+
+    public void setAiPlayHandler(AIPlayHandler aiPlayHandler) {
+        this.aiPlayHandler = aiPlayHandler;
+    }
+
+    public boolean isShuffle() {
+        return isShuffle;
+    }
+
+    public void setShuffle(boolean shuffle) {
+        isShuffle = shuffle;
     }
 }

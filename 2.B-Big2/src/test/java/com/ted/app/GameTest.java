@@ -12,12 +12,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,7 +31,26 @@ class GameTest {
     }
 
     /**EndToEnd**/
-
+    @Test
+    public void run(){
+        // 獲取當前工作目錄
+        String currentDirectory = System.getProperty("user.dir");
+        String deckStr = "";
+        String result = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader(currentDirectory + "\\src\\main\\resources\\test.txt"))) {
+            deckStr = reader.readLine();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                result += line + "\n";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Optional<Deck> deck = Optional.of(initDeck(deckStr));
+        scanner = systemSetIn(result);
+        Big2 big2 = new Big2(false, deck);
+        big2.start(scanner);
+    }
 
     /**
      * Unit
@@ -551,6 +566,37 @@ class GameTest {
                 break;
         }
         return cards;
+    }
+
+    private Deck initDeck(String deckStr){
+        String[] arr = deckStr.split(" ");
+        Stack<Card> cards = new Stack<>();
+        for(String str : arr){
+            Suit suit = getSuitByChart(str.substring(0, 1));
+            Rank rank = getRankByChart(str.substring(2, str.length() - 1));
+            cards.add(new Card(rank, suit));
+        }
+        Deck deck = new Deck();
+        deck.setCards(cards);
+        return deck;
+    }
+
+    private Suit getSuitByChart(String suit){
+        for (Suit s : Suit.values()) {
+            if (s.getSymbol().equals(suit)) {
+                return s;
+            }
+        }
+        return null;
+    }
+
+    private Rank getRankByChart(String rank){
+        for (Rank r : Rank.values()) {
+            if (r.getSymbol().equals(rank)) {
+                return r;
+            }
+        }
+        return null;
     }
 
     private String toInputString(String... data) {

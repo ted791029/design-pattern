@@ -19,7 +19,7 @@ public class Round {
     private List<Player> players;
     private PlayRule rule;
 
-    public Round(int count, Optional<CardPattern> topPlay, Optional<Player> topPlayer, List<Player> players, PlayRule rule){
+    public Round(int count, Optional<CardPattern> topPlay, Optional<Player> topPlayer, List<Player> players, PlayRule rule) {
         setCount(count);
         setTopPlay(topPlay);
         setTopPlayer(topPlayer);
@@ -27,17 +27,17 @@ public class Round {
         setRule(rule);
     }
 
-    public void start(Scanner scanner){
+    public void start(Scanner scanner) {
         System.out.printf("新的回合開始了。\n");
-        if(count == 1 && topPlayer.isEmpty()){
+        if (count == 1 && topPlayer.isEmpty()) {
             Optional<Player> topPlayer = playerHasClubsThree();
-            if(topPlayer.isEmpty()) throw new RuntimeException("查無梅花三玩家。");
+            if (topPlayer.isEmpty()) throw new RuntimeException("查無梅花三玩家。");
             setTopPlayer(topPlayer);
         }
         int index = topPlayer.get().getNo() - 1;
         Optional<Player> winner = Optional.empty();
-        while (passCount < 3){
-            if(winner.isPresent()) break;
+        while (passCount < 3) {
+            if (winner.isPresent()) break;
             Player player = players.get(index);
             playerAction(player, scanner);
             index = (index + 1) % players.size();
@@ -45,70 +45,70 @@ public class Round {
         }
     }
 
-    private void showPlayCard(Player player, Optional<CardPattern> cardPatternOp){
-        if(cardPatternOp.isEmpty()) throw new RuntimeException("出牌牌型不該為空");
+    private void showPlayCard(Player player, Optional<CardPattern> cardPatternOp) {
+        if (cardPatternOp.isEmpty()) throw new RuntimeException("出牌牌型不該為空");
         CardPattern pattern = cardPatternOp.get();
         List<Card> cards = pattern.getCards();
         String cardStr = "";
-        for(int i = 0; i < cards.size(); i++){
+        for (int i = 0; i < cards.size(); i++) {
             Card card = cards.get(i);
-            cardStr += card.getSuitSymbol() + "[" +  card.getRankSymbol() +"] ";
+            cardStr += card.getSuitSymbol() + "[" + card.getRankSymbol() + "] ";
         }
-        System.out.printf("玩家%s打出了 %s %s", player.getName(), pattern.getName(), cardStr);
+        System.out.printf("玩家 %s 打出了 %s %s\n", player.getName(), pattern.getName(), cardStr);
     }
 
-    private void playerAction(Player player, Scanner scanner){
+    private void playerAction(Player player, Scanner scanner) {
         System.out.printf("輪到%S了。\n", player.getName());
         List<Card> playCards = new ArrayList<>();
         boolean isAction = false;
         Optional<CardPattern> playPattern = Optional.empty();
-        while (!isAction){
+        while (!isAction) {
             player.showHand();
             playCards = player.play(scanner, topPlay);
             playPattern = rule.getPlayPatternOp(playCards);
             isAction = playCardValid(playCards, playPattern);
         }
-        if(playCards.size() > 0) showPlayCard(player, playPattern);
+        if (playCards.size() > 0) showPlayCard(player, playPattern);
         updateInfo(player, playCards, playPattern);
     }
 
-    private boolean playCardValid(List<Card> playCards, Optional<CardPattern> playPattern){
-        if(playCards.size() == 0){
+    private boolean playCardValid(List<Card> playCards, Optional<CardPattern> playPattern) {
+        if (playCards.size() == 0) {
             return passValid();
-        }else {
+        } else {
             return playValid(playPattern);
         }
     }
 
-    private Optional<Player> playerHasClubsThree(){
-        for(Player player : players){
-            if(player.handHasTheCard(new Card(Rank.THREE, Suit.CLUB))){
+    private Optional<Player> playerHasClubsThree() {
+        for (Player player : players) {
+            if (player.handHasTheCard(new Card(Rank.THREE, Suit.CLUB))) {
                 return Optional.of(player);
             }
         }
         return Optional.empty();
     }
 
-    private boolean passValid(){
-        if(topPlay.isEmpty()){
+    private boolean passValid() {
+        if (topPlay.isEmpty()) {
             System.out.printf("你不能在新的回合中喊 PASS\n");
             return false;
         }
         return true;
     }
 
-    private boolean playValid(Optional<CardPattern> playPattern){
-        if(!rule.isValid(playPattern, this)){
+    private boolean playValid(Optional<CardPattern> playPattern) {
+        if (!rule.isValid(playPattern, this)) {
             return false;
         }
         return true;
     }
 
-    private void updateInfo(Player player, List<Card> playCards, Optional<CardPattern> playPattern){
-        if(playCards.size() == 0){
+    private void updateInfo(Player player, List<Card> playCards, Optional<CardPattern> playPattern) {
+        if (playCards.size() == 0) {
             System.out.printf("玩家 %s PASS\n", player.getName());
             passCount++;
-        }else {
+        } else {
             player.handRemove(playCards);
             topPlay = playPattern;
             topPlayer = Optional.of(player);
@@ -116,16 +116,18 @@ public class Round {
         }
     }
 
-    private Optional<Player> getPlayerWithHandIsEmpty(){
-        for(Player player : players){
-            if(player.isHandEmpty()){
+    private Optional<Player> getPlayerWithHandIsEmpty() {
+        for (Player player : players) {
+            if (player.isHandEmpty()) {
                 return Optional.of(player);
             }
         }
         return Optional.empty();
     }
 
-    /**getter & setter **/
+    /**
+     * getter & setter
+     **/
     public int getCount() {
         return count;
     }

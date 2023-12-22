@@ -3,18 +3,15 @@ package com.ted.app.AiPlayHandler;
 import com.ted.app.Card.Card;
 import com.ted.app.CardPattern.CardPattern;
 import com.ted.app.CardPattern.Pair;
-import com.ted.app.CardPattern.Single;
-import com.ted.app.CardPatternHandler.CardPatternHandler;
-import com.ted.app.CardPatternHandler.SingleHandler;
+import com.ted.app.CardPatternHandler.PairHandler;
 import com.ted.app.Hand;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class PlayPairHandler extends AIPlayHandler {
-    public PlayPairHandler(AIPlayHandler next, CardPatternHandler cardPatternHandler) {
-        super(next, cardPatternHandler);
+    public PlayPairHandler(AIPlayHandler next) {
+        super(next, new PairHandler(null));
     }
 
     @Override
@@ -23,7 +20,7 @@ public class PlayPairHandler extends AIPlayHandler {
     }
 
     @Override
-    protected Optional<CardPattern> doHandling(CardPattern topPlay, Hand hand) {
+    protected List<Card> doHandling(CardPattern topPlay, Hand hand) {
         List<Card> cards = hand.getCards();
         Pair toplayPair = new Pair(topPlay.getCards());
         for (int i = 0; i < cards.size(); i++) {
@@ -35,10 +32,10 @@ public class PlayPairHandler extends AIPlayHandler {
                 playCards.add(card2);
                 Pair handPair = new Pair(playCards);
                 if (cardPatternHandler.match(playCards) && handPair.compare(toplayPair)) {
-                    return Optional.of(handPair);
+                    return playCards;
                 }
             }
         }
-        return Optional.empty();
+        return new ArrayList<>();
     }
 }

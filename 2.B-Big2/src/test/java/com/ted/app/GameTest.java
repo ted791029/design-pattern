@@ -194,37 +194,32 @@ class GameTest {
         Hand hand = givenAIPlayerHasHand();
         List<Card> cards;
         CardPattern topPlay;
-        Optional<CardPattern> playPatternOp;
+        List<Card> playCards;
         List<Card> targetCards;
         //Single
         cards = givenHasCards("Single");
         topPlay = new Single(cards);
-        playPatternOp = whenAIPlayerPlay(handler, topPlay, hand);
-        targetCards =  getTargetCards("Single");
-        assertTrue(playPatternOp.isPresent());
-        thenPlaySuccess(playPatternOp.get(), targetCards);
+        playCards = whenAIPlayerPlay(handler, topPlay, hand);
+        targetCards = getTargetCards("Single");
+        thenPlaySuccess(playCards, targetCards);
         //Pair
         cards = givenHasCards("Pair");
         topPlay = new Pair(cards);
-        playPatternOp = whenAIPlayerPlay(handler, topPlay, hand);
-        targetCards =  getTargetCards("Pair");
-        assertTrue(playPatternOp.isPresent());
-        thenPlaySuccess(playPatternOp.get(), targetCards);
-//        //Straight
-//        patternOp = Optional.empty();
-//        cards = givenHasCards("Straight");
-//        patternOp = whenHandle(handler, cards);
-//        thenGetCardPattern(patternOp, Optional.of(Straight.class));
-//        //FullHouse
-//        patternOp = Optional.empty();
-//        cards = givenHasCards("FullHouse");
-//        patternOp = whenHandle(handler, cards);
-//        thenGetCardPattern(patternOp, Optional.of(FullHouse.class));
-//        //Not Pattern
-//        patternOp = Optional.empty();
-//        cards = givenHasCards("");
-//        patternOp = whenHandle(handler, cards);
-//        thenGetCardPattern(patternOp, Optional.empty());
+        playCards = whenAIPlayerPlay(handler, topPlay, hand);
+        targetCards = getTargetCards("Pair");
+        thenPlaySuccess(playCards, targetCards);
+        //Straight
+        cards = givenHasCards("Straight");
+        topPlay = new Straight(cards);
+        playCards = whenAIPlayerPlay(handler, topPlay, hand);
+        targetCards = getTargetCards("Straight");
+        thenPlaySuccess(playCards, targetCards);
+        //FullHouse
+        cards = givenHasCards("FullHouse");
+        topPlay = new FullHouse(cards);
+        playCards = whenAIPlayerPlay(handler, topPlay, hand);
+        targetCards = getTargetCards("FullHouse");
+        thenPlaySuccess(playCards, targetCards);
     }
 
 
@@ -314,14 +309,14 @@ class GameTest {
         cards.add(new Card(Rank.EIGHT, Suit.DIAMOND));
         cards.add(new Card(Rank.NINE, Suit.SPADE));
         //FullHouse
-        cards.add(new Card(Rank.JACK, Suit.CLUB));
-        cards.add(new Card(Rank.JACK, Suit.DIAMOND));
+        cards.add(new Card(Rank.TEN, Suit.HEART));
+        cards.add(new Card(Rank.TEN, Suit.SPADE));
         cards.add(new Card(Rank.QUEEN, Suit.CLUB));
         cards.add(new Card(Rank.QUEEN, Suit.DIAMOND));
         cards.add(new Card(Rank.QUEEN, Suit.SPADE));
         //Pair
-        cards.add(new Card(Rank.ACE, Suit.SPADE));
         cards.add(new Card(Rank.ACE, Suit.DIAMOND));
+        cards.add(new Card(Rank.ACE, Suit.SPADE));
         //Single
         cards.add(new Card(Rank.TWO, Suit.SPADE));
         hand.setCards(cards);
@@ -339,18 +334,18 @@ class GameTest {
                 cards.add(new Card(Rank.ACE, Suit.CLUB));
                 break;
             case ("Straight"):
+                cards.add(new Card(Rank.FIVE, Suit.CLUB));
                 cards.add(new Card(Rank.SIX, Suit.SPADE));
                 cards.add(new Card(Rank.SEVEN, Suit.DIAMOND));
                 cards.add(new Card(Rank.EIGHT, Suit.SPADE));
                 cards.add(new Card(Rank.NINE, Suit.HEART));
-                cards.add(new Card(Rank.TEN, Suit.CLUB));
                 break;
             case ("FullHouse"):
+                cards.add(new Card(Rank.TEN, Suit.DIAMOND));
+                cards.add(new Card(Rank.TEN, Suit.CLUB));
                 cards.add(new Card(Rank.JACK, Suit.SPADE));
                 cards.add(new Card(Rank.JACK, Suit.DIAMOND));
                 cards.add(new Card(Rank.JACK, Suit.HEART));
-                cards.add(new Card(Rank.TEN, Suit.DIAMOND));
-                cards.add(new Card(Rank.TEN, Suit.CLUB));
                 break;
             default:
                 cards.add(new Card(Rank.TWO, Suit.SPADE));
@@ -415,14 +410,14 @@ class GameTest {
         return playRule.isValid(playPatternOp, round);
     }
 
-    public List<Card> whenPlayCards(Player player, int... cardIndex){
+    public List<Card> whenPlayCards(Player player, int... cardIndex) {
         String input = toInputString(cardIndex);
         scanner = systemSetIn(input);
         player.showHand();
         return player.play(scanner, Optional.empty());
     }
 
-    public Optional<CardPattern> whenAIPlayerPlay(AIPlayHandler handler, CardPattern pattern, Hand hand){
+    public List<Card> whenAIPlayerPlay(AIPlayHandler handler, CardPattern pattern, Hand hand) {
         return handler.handle(pattern, hand);
     }
 
@@ -478,7 +473,7 @@ class GameTest {
         assertFalse(result);
     }
 
-    private void thenGetPlayCards(Hand hand,List<Card> playCards){
+    private void thenGetPlayCards(Hand hand, List<Card> playCards) {
         Card fristCard = playCards.get(0);
         assertEquals(fristCard.getRank(), Rank.FOUR);
         assertEquals(fristCard.getSuit(), Suit.SPADE);
@@ -487,11 +482,10 @@ class GameTest {
         assertEquals(lastCard.getSuit(), Suit.DIAMOND);
     }
 
-    private void thenPlaySuccess(CardPattern pattern, List<Card> targetCards){
-        List<Card> patternCards = pattern.getCards();
-        for(int i = 0; i < patternCards.size(); i++){
-            assertEquals(patternCards.get(i).getRank(), targetCards.get(i).getRank());
-            assertEquals(patternCards.get(i).getSuit(), targetCards.get(i).getSuit());
+    private void thenPlaySuccess(List<Card> playCards, List<Card> targetCards) {
+        for (int i = 0; i < playCards.size(); i++) {
+            assertEquals(playCards.get(i).getRank(), targetCards.get(i).getRank());
+            assertEquals(playCards.get(i).getSuit(), targetCards.get(i).getSuit());
         }
     }
 
@@ -500,10 +494,10 @@ class GameTest {
                 new PlayPairHandler(
                         new PlayStraightHandler(
                                 new PlayFullHouseHandler(
-                                        null, new FullHouseHandler(null)
-                                ) , new StraightHandler(null)
-                        ), new PairHandler(null)
-                ), new SingleHandler(null)
+                                        null
+                                )
+                        )
+                )
         );
     }
 
@@ -531,26 +525,26 @@ class GameTest {
         return players;
     }
 
-    private List<Card> getTargetCards(String type){
+    private List<Card> getTargetCards(String type) {
         List<Card> cards = new ArrayList<>();
         switch (type) {
             case ("Single"):
                 cards.add(new Card(Rank.TWO, Suit.SPADE));
                 break;
             case ("Pair"):
-                cards.add(new Card(Rank.ACE, Suit.SPADE));
                 cards.add(new Card(Rank.ACE, Suit.DIAMOND));
+                cards.add(new Card(Rank.ACE, Suit.SPADE));
                 break;
             case ("Straight"):
+                cards.add(new Card(Rank.FIVE, Suit.SPADE));
                 cards.add(new Card(Rank.SIX, Suit.HEART));
                 cards.add(new Card(Rank.SEVEN, Suit.CLUB));
                 cards.add(new Card(Rank.EIGHT, Suit.DIAMOND));
                 cards.add(new Card(Rank.NINE, Suit.SPADE));
-                cards.add(new Card(Rank.TEN, Suit.SPADE));
                 break;
             case ("FullHouse"):
-                cards.add(new Card(Rank.THREE, Suit.CLUB));
-                cards.add(new Card(Rank.THREE, Suit.DIAMOND));
+                cards.add(new Card(Rank.TEN, Suit.HEART));
+                cards.add(new Card(Rank.TEN, Suit.SPADE));
                 cards.add(new Card(Rank.QUEEN, Suit.CLUB));
                 cards.add(new Card(Rank.QUEEN, Suit.DIAMOND));
                 cards.add(new Card(Rank.QUEEN, Suit.SPADE));

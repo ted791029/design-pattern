@@ -9,27 +9,27 @@ import java.util.Stack;
 public class Deck {
     private Stack<Card> cards;
 
-    public Deck(){
+    public Deck() {
         init();
     }
 
 
-    public Card deal(){
+    public Card deal() {
         return cards.pop();
     }
 
-    public void shuffle(){
+    public void shuffle() {
         for (int i = 0; i < cards.size(); i++) {
             int targetIndex = (int) (Math.random() * (cards.size() - i));
             swap(i, targetIndex);
         }
     }
 
-    public int size(){
+    public int size() {
         return cards.size();
     }
 
-    private void init(){
+    private void init() {
         Stack<Card> stack = new Stack<>();
         for (Suit suit : Suit.values()) {
             for (Rank rank : Rank.values()) {
@@ -45,7 +45,9 @@ public class Deck {
         cards.set(index2, card);
     }
 
-    /**getter & setter**/
+    /**
+     * getter & setter
+     **/
     public Stack<Card> getCards() {
         return cards;
     }

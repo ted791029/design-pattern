@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public class StraightHandler extends CardPatternHandler{
+public class StraightHandler extends CardPatternHandler {
 
     public StraightHandler(CardPatternHandler next) {
         super(next);
@@ -31,7 +31,7 @@ public class StraightHandler extends CardPatternHandler{
         Set<String> set = new HashSet<>();
         //最大為13
         int minRankScore = 14;
-        int maxRankScore  = 0;
+        int maxRankScore = 0;
         for (Card card : playCards) {
             minRankScore = Math.min(minRankScore, card.getRankScore());
             maxRankScore = Math.max(maxRankScore, card.getRankScore());

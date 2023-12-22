@@ -1,34 +1,37 @@
 package com.ted.app.AiPlayHandler;
 
+import com.ted.app.Card.Card;
 import com.ted.app.CardPattern.CardPattern;
 import com.ted.app.CardPatternHandler.CardPatternHandler;
 import com.ted.app.Hand;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
-public  abstract class AIPlayHandler {
+public abstract class AIPlayHandler {
     private AIPlayHandler next;
 
     protected CardPatternHandler cardPatternHandler;
 
-    public AIPlayHandler(AIPlayHandler next, CardPatternHandler cardPatternHandler){
+    public AIPlayHandler(AIPlayHandler next, CardPatternHandler cardPatternHandler) {
         setNext(next);
         setCardPatternHandler(cardPatternHandler);
     }
 
-    public Optional<CardPattern> handle(CardPattern topPlay, Hand hand){
+    public List<Card> handle(CardPattern topPlay, Hand hand) {
         Optional<AIPlayHandler> nextOp = Optional.ofNullable(next);
-        if(match(topPlay)){
+        if (match(topPlay)) {
             return doHandling(topPlay, hand);
-        }else if(nextOp.isPresent()){
+        } else if (nextOp.isPresent()) {
             return nextOp.get().handle(topPlay, hand);
         }
-        return Optional.empty();
+        return new ArrayList<>();
     }
 
     protected abstract boolean match(CardPattern topPlay);
 
-    protected abstract Optional<CardPattern> doHandling(CardPattern topPlay, Hand hand);
+    protected abstract List<Card> doHandling(CardPattern topPlay, Hand hand);
 
     public AIPlayHandler getNext() {
         return next;

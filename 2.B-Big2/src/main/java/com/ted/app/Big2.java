@@ -1,5 +1,6 @@
 package com.ted.app;
 
+import com.ted.app.AiPlayHandler.*;
 import com.ted.app.Player.AIPlayer;
 import com.ted.app.Player.HumanPlayer;
 import com.ted.app.Player.Player;
@@ -10,27 +11,30 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class Big2 {
-    Deck deck;
-    List<Player> players;
-    List<Round> rounds;
+    private Deck deck;
+    private List<Player> players;
+    private List<Round> rounds;
+    private PlayRule playRule;
+    private AIPlayHandler aiPlayHandler;
 
     private final int PLAYER_SIZE = 4;
 
-    public Big2(){
+    public Big2() {
         rounds = new ArrayList<>();
         deck = new Deck();
+        playRule = new PlayRule();
+        aiPlayHandler = playHandlerInit();
     }
 
-    public void start(Scanner scanner){
+    public void start(Scanner scanner) {
         System.out.printf("遊戲開始\n");
         System.out.printf("=======================================\n");
         init(scanner);
         Optional<Player> winner = Optional.empty();
         int roundCount = 1;
-        PlayRule rule = new PlayRule();
-        while (winner.isEmpty()){
+        while (winner.isEmpty()) {
             Optional<Player> topPlayer = getLastTopPlayer();
-            Round round = new Round(roundCount++, Optional.empty(), topPlayer, players, rule);
+            Round round = new Round(roundCount++, Optional.empty(), topPlayer, players, playRule);
             round.start(scanner);
             addRound(round);
             winner = getPlayerWithHandIsEmpty();
@@ -39,37 +43,37 @@ public class Big2 {
         System.out.printf("遊戲結束，遊戲的勝利者為 %s\n", winner.get().getName());
     }
 
-    private void addRound(Round round){
+    private void addRound(Round round) {
         rounds.add(round);
     }
 
-    private void deal(){
+    private void deal() {
         int playerIndex = 0;
-        while (deck.size() > 0){
+        while (deck.size() > 0) {
             Player player = players.get(playerIndex);
             player.deal(deck);
-            playerIndex =  (playerIndex + 1) % players.size();
+            playerIndex = (playerIndex + 1) % players.size();
         }
     }
 
-    private Optional<Player> getLastTopPlayer(){
-        if(rounds.size() == 0){
+    private Optional<Player> getLastTopPlayer() {
+        if (rounds.size() == 0) {
             return Optional.empty();
         }
         Round lastRound = rounds.get(rounds.size() - 1);
         return lastRound.getTopPlayer();
     }
 
-    private Optional<Player> getPlayerWithHandIsEmpty(){
-        for(Player player : players){
-            if(player.isHandEmpty()){
+    private Optional<Player> getPlayerWithHandIsEmpty() {
+        for (Player player : players) {
+            if (player.isHandEmpty()) {
                 return Optional.of(player);
             }
         }
         return Optional.empty();
     }
 
-    private void init(Scanner scanner){
+    private void init(Scanner scanner) {
         selectNumberOfPlayers(scanner);
         playersNameSelf(scanner);
         deck.shuffle();
@@ -81,12 +85,14 @@ public class Big2 {
         for (int i = 0; i < number; i++) {
             players.add(new HumanPlayer(i + 1));
         }
+        int count = 1;
         for (int i = number; i < PLAYER_SIZE; i++) {
-            players.add(new AIPlayer(i + 1));
+            players.add(new AIPlayer(i + 1, "ai" + count, aiPlayHandler));
+            count++;
         }
     }
 
-    private void playersNameSelf(Scanner scanner){
+    private void playersNameSelf(Scanner scanner) {
         for (int i = 0; i < players.size(); i++) {
             Player player = players.get(i);
             if (player instanceof AIPlayer) break;
@@ -96,13 +102,27 @@ public class Big2 {
         }
     }
 
+    private AIPlayHandler playHandlerInit() {
+        return new PlayFullHouseHandler(
+                new PlayStraightHandler(
+                        new PlayPairHandler(
+                                new PlaySingleHandler(
+                                        null
+                                )
+                        )
+                )
+        );
+    }
+
     private void selectNumberOfPlayers(Scanner scanner) {
         System.out.println("請輸入有幾位玩家!");
         int number = Integer.parseInt(scanner.nextLine());
         initPlayers(number);
     }
 
-    /**getter & setter**/
+    /**
+     * getter & setter
+     **/
     public Deck getDeck() {
         return deck;
     }

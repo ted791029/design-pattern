@@ -6,35 +6,37 @@ public class Card {
     private Suit suit;
 
 
-    public Card(Rank rank, Suit suit){
+    public Card(Rank rank, Suit suit) {
         setRank(rank);
         setSuit(suit);
     }
 
-    public boolean compare(Card card){
-        if(rank == card.rank){
+    public boolean compare(Card card) {
+        if (rank == card.rank) {
             return suit.compare(card.suit);
         }
         return rank.compare(card.rank);
     }
 
-    public boolean equal(Card card){
+    public boolean equal(Card card) {
         return rank == card.rank && suit == card.suit;
     }
 
-    public int getRankScore(){
+    public int getRankScore() {
         return rank.getScore();
     }
 
-    public String getRankSymbol(){
+    public String getRankSymbol() {
         return rank.getSymbol();
     }
 
-    public String getSuitSymbol(){
+    public String getSuitSymbol() {
         return suit.getSymbol();
     }
 
-    /**getter & setter**/
+    /**
+     * getter & setter
+     **/
 
     public Rank getRank() {
         return rank;

@@ -30,16 +30,16 @@ public class FullHouseHandler extends CardPatternHandler {
         for (Card card : playCards) {
             Rank key = card.getRank();
             List<Card> temp = new ArrayList<>();
-            if(map.containsKey(key)){
+            if (map.containsKey(key)) {
                 temp = map.get(key);
                 temp.add(card);
-            }else {
+            } else {
                 temp.add(card);
                 map.put(key, temp);
             }
         }
         int maxCardsSize = 0;
-        for(Rank rank : map.keySet()){
+        for (Rank rank : map.keySet()) {
             int cardsSize = map.get(rank).size();
             maxCardsSize = Math.max(maxCardsSize, cardsSize);
         }

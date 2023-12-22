@@ -10,14 +10,14 @@ public class CardPattern {
     private int cardSize;
     private int rankTypeSize;
 
-    public CardPattern(List<Card> cards, String name, int cardSize, int rankTypeSize){
+    public CardPattern(List<Card> cards, String name, int cardSize, int rankTypeSize) {
         setCards(cards);
         setName(name);
         setCardSize(cardSize);
         setRankTypeSize(rankTypeSize);
     }
 
-    public boolean compare(CardPattern pattern){
+    public boolean compare(CardPattern pattern) {
         List<Card> cards = getCardsToCompare();
         Card biggestCard = findBiggestCard(cards);
         List<Card> patternCards = pattern.getCardsToCompare();
@@ -25,18 +25,20 @@ public class CardPattern {
         return biggestCard.compare(patternBiggestCard);
     }
 
-    protected List<Card> getCardsToCompare(){
+    protected List<Card> getCardsToCompare() {
         return cards;
-    };
+    }
 
-    protected Card findBiggestCard(List<Card> cards){
+    ;
+
+    protected Card findBiggestCard(List<Card> cards) {
         Card biggestCard = null;
-        for(Card card : cards){
-            if(biggestCard == null){
+        for (Card card : cards) {
+            if (biggestCard == null) {
                 biggestCard = card;
                 continue;
             }
-            if(card.compare(biggestCard)){
+            if (card.compare(biggestCard)) {
                 biggestCard = card;
             }
         }

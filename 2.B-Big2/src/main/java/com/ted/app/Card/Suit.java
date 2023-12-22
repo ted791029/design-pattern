@@ -15,7 +15,7 @@ public enum Suit {
         setScore(score);
     }
 
-    public boolean compare(Suit suit){
+    public boolean compare(Suit suit) {
         return score > suit.score;
     }
 

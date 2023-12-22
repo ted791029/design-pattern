@@ -18,16 +18,18 @@ public enum Rank {
     private String symbol;
     private int score;
 
-    Rank(String symbol, int score){
+    Rank(String symbol, int score) {
         setScore(score);
         setSymbol(symbol);
     }
 
-    public boolean compare(Rank rank){
+    public boolean compare(Rank rank) {
         return score > rank.score;
     }
 
-    /**getter & setter **/
+    /**
+     * getter & setter
+     **/
     public String getSymbol() {
         return symbol;
     }

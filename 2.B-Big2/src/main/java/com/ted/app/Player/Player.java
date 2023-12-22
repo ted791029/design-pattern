@@ -18,7 +18,7 @@ public abstract class Player {
 
     private int no;
 
-    public Player (int no){
+    public Player(int no) {
         setNo(no);
         hand = new Hand();
     }
@@ -36,22 +36,23 @@ public abstract class Player {
         addHand(card);
     }
 
-    public boolean handHasTheCard(Card card){
+    public boolean handHasTheCard(Card card) {
         return hand.hasTheCard(card);
     }
 
-    public List<Card> handPlay(List<Integer> indexes){
+    public List<Card> handPlay(List<Integer> indexes) {
         return hand.play(indexes);
     }
 
-    public void handRemove(List<Card> playCards){
+    public void handRemove(List<Card> playCards) {
         hand.remove(playCards);
     }
+
     public void nameSelf(String name) {
         setName(name);
     }
 
-    public boolean nameValid(String name){
+    public boolean nameValid(String name) {
         Pattern p = Pattern.compile("A-Z+a-z+0-9");
         Matcher m = p.matcher(name);
         return m.matches();
@@ -59,7 +60,7 @@ public abstract class Player {
 
     public abstract List<Card> play(Scanner scanner, Optional<CardPattern> topPlay);
 
-    public void showHand(){
+    public void showHand() {
         hand.show();
     }
 

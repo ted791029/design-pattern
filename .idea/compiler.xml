@@ -11,6 +11,7 @@
         <module name="2-student-group" />
         <module name="3H-collision-detection" />
         <module name="B-Big2" />
+        <module name="_3.1H-youtube" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

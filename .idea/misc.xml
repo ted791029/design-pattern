@@ -17,7 +17,17 @@
         <option value="$PROJECT_DIR$/3.1H-youtube/pom.xml" />
         <option value="$PROJECT_DIR$/_3.2-controller/pom.xml" />
         <option value="$PROJECT_DIR$/3.2-controller/pom.xml" />
+        <option value="$PROJECT_DIR$/test/pom.xml" />
+        <option value="$PROJECT_DIR$/5.B-keyboard-shortcut/pom.xml" />
+        <option value="$PROJECT_DIR$/_5.C-map-game/pom.xml" />
+        <option value="$PROJECT_DIR$/5.B-shortcut-key/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/5.B-keyboard-shortcut/pom.xml" />
+        <option value="$PROJECT_DIR$/5.C-map-game/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17.0.7" project-jdk-type="JavaSDK">

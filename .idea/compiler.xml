@@ -6,18 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="5.B-shortcut-key" />
         <module name="2.2H-card-game-framwork" />
-        <module name="2-student-group" />
+        <module name="5.C-map-game" />
         <module name="B-Big2" />
         <module name="2.1H-matchmaking-system" />
         <module name="1H-matchmaking-system" />
         <module name="3.1H-youtube" />
         <module name="2.3H-collision-detection" />
         <module name="2.B-Big2" />
+        <module name="3.2-controller" />
+        <module name="5.B-shortcut-key" />
+        <module name="2-student-group" />
         <module name="3H-collision-detection" />
         <module name="2.2-student-group" />
-        <module name="3.2-controller" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

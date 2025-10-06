@@ -1,0 +1,22 @@
+package com.ted.app.states;
+
+import com.ted.app.Map;
+import com.ted.app.mapObjects.Roles.Role;
+
+public class Teleport extends State{
+    public Teleport(Map map, Role role) {
+        super(map, role);
+        setDuration(1);
+    }
+
+    protected void effect(){
+        Role role = getRole();
+        role.teleportTo();
+
+    }
+
+    @Override
+    public String show() {
+        return "瞬身";
+    }
+}

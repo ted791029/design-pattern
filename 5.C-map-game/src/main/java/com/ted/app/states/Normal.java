@@ -4,8 +4,8 @@ import com.ted.app.Map;
 import com.ted.app.mapObjects.Roles.Role;
 
 public class Normal extends State{
-    public Normal(Map map, Role role) {
-        super(map, role);
+    public Normal(Role role) {
+        super(role);
         setDuration(0);
     }
 

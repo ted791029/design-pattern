@@ -20,7 +20,7 @@ public class KingsRock extends Treasure{
     @Override
     protected State createState(Role role) {
         Map map = getMap();
-        return new Stockpile(map, role);
+        return new Stockpile(role);
     }
 
     @Override

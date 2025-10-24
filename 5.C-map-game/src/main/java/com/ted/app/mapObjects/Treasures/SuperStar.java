@@ -19,7 +19,7 @@ public class SuperStar extends Treasure{
     @Override
     protected State createState(Role role) {
         Map map = getMap();
-        return new Invincible(map, role);
+        return new Invincible(role);
     }
 
     @Override

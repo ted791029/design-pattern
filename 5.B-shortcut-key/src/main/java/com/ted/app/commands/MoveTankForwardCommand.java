@@ -3,7 +3,7 @@ package com.ted.app.commands;
 import com.ted.app.Tank;
 
 public class MoveTankForwardCommand implements Command{
-    Tank tank;
+    private Tank tank;
 
     public MoveTankForwardCommand(Tank tank) {
         setTank(tank);

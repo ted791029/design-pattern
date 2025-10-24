@@ -3,7 +3,7 @@ package com.ted.app.commands;
 import com.ted.app.Telecom;
 
 public class DisconnectTelecomCommand implements Command{
-    Telecom telecom;
+    private Telecom telecom;
 
     public DisconnectTelecomCommand(Telecom telecom) {
         setTelecom(telecom);

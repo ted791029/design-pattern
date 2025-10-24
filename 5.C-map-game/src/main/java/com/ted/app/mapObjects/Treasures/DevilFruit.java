@@ -18,7 +18,7 @@ public class DevilFruit extends Treasure{
     @Override
     protected State createState(Role role) {
         Map map = getMap();
-        return new Orderless(map, role);
+        return new Orderless(role);
     }
 
     @Override

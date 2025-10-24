@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d0c32b1f-3c62-4f09-8352-7c14ec070394" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/Deck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/DiscardPile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/Hand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/Card.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/pocker/PokerCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/pocker/Rank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/pocker/Suit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/uno/Color.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/uno/Number.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/uno/UnoCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/games/CardGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/games/Showdown.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/games/Uno.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/players/AIPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/players/HumanPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/players/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2.1H-matchmaking-system/2.1H-matchmaking-system.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/Keyboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/ConnectTelecomCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/ConnectTelecomCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/DisconnectTelecomCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/DisconnectTelecomCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/MoveTankBackwardCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/MoveTankBackwardCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/MoveTankForwardCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/MoveTankForwardCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/Util/ScannerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/util/ScannerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/Util/ValidUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/util/ValidUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Roles/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Roles/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Roles/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Roles/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Roles/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Roles/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/AcceleratingPotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/AcceleratingPotion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/DevilFruit.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/DevilFruit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/DokodemoDoor.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/DokodemoDoor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/HealingPotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/HealingPotion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/KingsRock.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/KingsRock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/Poison.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/Poison.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/SuperStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/SuperStar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Accelerated.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Accelerated.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Erupting.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Erupting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Healing.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Healing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Invincible.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Invincible.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Normal.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Normal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Orderless.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Orderless.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Poisoned.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Poisoned.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Stockpile.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Stockpile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Teleport.java" beforeDir="false" afterPath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Teleport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/design-pattern.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="341GoHUZaWBJHQaDzvqI2HFyvw1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
+      <module name="5.C-map-game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ted.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
+      <module name="3-card-game-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ted.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d0c32b1f-3c62-4f09-8352-7c14ec070394" name="Changes" comment="" />
+      <created>1760373839359</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760373839359</updated>
+    </task>
+    <servers />
+  </component>
+</project>

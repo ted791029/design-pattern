@@ -6,30 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="2.2H-card-game-framwork" />
-        <module name="5.C-map-game" />
-        <module name="B-Big2" />
-        <module name="2.1H-matchmaking-system" />
-        <module name="1H-matchmaking-system" />
-        <module name="3.1H-youtube" />
-        <module name="2.3H-collision-detection" />
-        <module name="2.B-Big2" />
-        <module name="3.2-controller" />
         <module name="5.B-shortcut-key" />
-        <module name="2-student-group" />
-        <module name="3H-collision-detection" />
+        <module name="5.C-map-game" />
+        <module name="2.2H-card-game-framwork" />
+        <module name="2.1H-matchmaking-system" />
+        <module name="3.1H-youtube" />
+        <module name="2.B-Big2" />
+        <module name="2.3H-collision-detection" />
+        <module name="3-card-game-framework" />
         <module name="2.2-student-group" />
+        <module name="3.2-controller" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="1H-matchmaking-system" target="17" />
-      <module name="2-controller" target="17" />
-      <module name="2-student-group" target="17" />
-      <module name="2B-Big2" target="17" />
-      <module name="3H-collision-detection" target="17" />
-      <module name="5.B-keyboard-shortcut" target="17" />
-      <module name="B-Big2" target="17" />
-      <module name="B-keyboard-shortcut" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>

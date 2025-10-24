@@ -3,7 +3,7 @@ package com.ted.app.commands;
 import com.ted.app.Telecom;
 
 public class ConnectTelecomCommand implements Command {
-    Telecom telecom;
+    private Telecom telecom;
 
     public ConnectTelecomCommand(Telecom telecom) {
         setTelecom(telecom);
@@ -31,4 +31,6 @@ public class ConnectTelecomCommand implements Command {
     public void setTelecom(Telecom telecom) {
         this.telecom = telecom;
     }
+
+
 }

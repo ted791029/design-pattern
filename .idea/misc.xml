@@ -4,30 +4,17 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/matchmaking-system/pom.xml" />
-        <option value="$PROJECT_DIR$/student-group/pom.xml" />
-        <option value="$PROJECT_DIR$/2.2H-card-game-framwork/pom.xml" />
-        <option value="$PROJECT_DIR$/2.2-student-group/pom.xml" />
-        <option value="$PROJECT_DIR$/2.1H-matchmaking-system/pom.xml" />
-        <option value="$PROJECT_DIR$/_2.3H-collision-detection/pom.xml" />
-        <option value="$PROJECT_DIR$/2.3H-collision-detection/pom.xml" />
-        <option value="$PROJECT_DIR$/_2.B-Big2/pom.xml" />
         <option value="$PROJECT_DIR$/2.B-Big2/pom.xml" />
-        <option value="$PROJECT_DIR$/_3.1H-youtube/pom.xml" />
-        <option value="$PROJECT_DIR$/3.1H-youtube/pom.xml" />
-        <option value="$PROJECT_DIR$/_3.2-controller/pom.xml" />
-        <option value="$PROJECT_DIR$/3.2-controller/pom.xml" />
-        <option value="$PROJECT_DIR$/test/pom.xml" />
-        <option value="$PROJECT_DIR$/5.B-keyboard-shortcut/pom.xml" />
-        <option value="$PROJECT_DIR$/_5.C-map-game/pom.xml" />
         <option value="$PROJECT_DIR$/5.B-shortcut-key/pom.xml" />
         <option value="$PROJECT_DIR$/5.C-map-game/pom.xml" />
+        <option value="$PROJECT_DIR$/2.1H-matchmaking-system/pom.xml" />
+        <option value="$PROJECT_DIR$/2.2-student-group/pom.xml" />
+        <option value="$PROJECT_DIR$/2.2H-card-game-framwork/pom.xml" />
+        <option value="$PROJECT_DIR$/2.3H-collision-detection/pom.xml" />
+        <option value="$PROJECT_DIR$/3.1H-youtube/pom.xml" />
+        <option value="$PROJECT_DIR$/3.2-controller/pom.xml" />
+        <option value="$PROJECT_DIR$/3-card-game-framework/pom.xml" />
       </list>
-    </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/5.B-keyboard-shortcut/pom.xml" />
-      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17.0.7" project-jdk-type="JavaSDK">

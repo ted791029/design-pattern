@@ -1,6 +1,7 @@
 package com.ted.app;
 
 import com.ted.app.commands.Command;
+import com.ted.app.commands.MarcoCommand;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +10,8 @@ import java.util.Stack;
 
 public class MainController {
     private Keyboard keyboard;
-    private Stack<List<Command>> recordStack  = new Stack<>();
-    private Stack<List<Command>> undoStack  = new Stack<>();
+    private Stack<Command> recordStack  = new Stack<>();
+    private Stack<Command> undoStack  = new Stack<>();
     private List<Command> totalCommands;
 
     public MainController(Keyboard keyboard, List<Command> commands) {
@@ -61,8 +62,8 @@ public class MainController {
         }
     }
 
-    public void addRecordStack(List<Command> commands){
-        recordStack.add(commands);
+    public void addRecordStack(Command command){
+        recordStack.add(command);
     }
 
     public void cleanUndoStack(){
@@ -75,22 +76,49 @@ public class MainController {
         System.out.println("請a-z中選一個作為快捷鍵");
         Scanner scanner = new Scanner(System.in);
         char button = scanner.next().charAt(0);
-        //ToDo 防呆 'a' <= button <= 'z'
+        if(!(('a' <= button && button <= 'z'))){
+            throw new IllegalArgumentException("button is invalid.");
+        }
         return button;
     }
 
-    private List<Command> getChoseCommands(char button, boolean isMacro){
+    private Command getChoseCommand(char button){
+        String getInputStr = getChoseInputStr(button);
+        if (!getInputStr.matches("-?\\d+")) {
+            throw new IllegalArgumentException("button is invalid.");
+        }
+        int index = Integer.parseInt(getInputStr);
+        if(index < 0 || index >= getTotalCommands().size()){
+            throw new IllegalArgumentException("button is invalid.");
+        }
+
+        Command command = totalCommands.get(index);
+        return command;
+    }
+
+    private List<Command> getChoseCommands(char button){
+        List<Command> commands = new ArrayList<>();
+        //用空格區隔
+        String[] indexArr = getChoseInputStr(button).split(" ");
+        for(String indexStr : indexArr){
+            if (!indexStr.matches("-?\\d+")) {
+                throw new IllegalArgumentException("button is invalid.");
+            }
+            int index = Integer.parseInt(indexStr);
+            if(index < 0 || index >= getTotalCommands().size()){
+                throw new IllegalArgumentException("button is invalid.");
+            }
+            commands.add(totalCommands.get(index));
+        }
+        return commands;
+    }
+
+    private String getChoseInputStr(char button){
         System.out.println("要將哪一道指令設置到快捷鍵 " + button + " 上:");
         showCommands();
         Scanner scanner = new Scanner(System.in);
         String inputStr = scanner.nextLine();
-        List<Command> commands = new ArrayList<>();
-        String[] indexArr = inputStr.split(" ");
-        //ToDo 防呆 輸入數字要在 0 - commands.size 之間
-        for(String index : indexArr){
-            commands.add(totalCommands.get(Integer.parseInt(index)));
-        }
-        return commands;
+        return inputStr;
     }
 
     private void pressKeyboard(char button){
@@ -98,23 +126,22 @@ public class MainController {
     }
 
     private void redo(){
-        List<Command> commands = undoStack.pop();
-        for(Command command : commands){
-            command.execute();
-        }
-        recordStack.add(commands);
+        Command command = undoStack.pop();
+        command.execute();
+        recordStack.add(command);
     }
 
     private void setShortcutKey(){
         char button = getChoseButton();
-        List<Command> commands = getChoseCommands(button, false);
-        keyboard.setCommands(button, commands);
+        Command command = getChoseCommand(button);
+        keyboard.setCommands(button, command);
     }
 
     private void setMacro(){
         char button = getChoseButton();
-        List<Command> commands = getChoseCommands(button, true);
-        keyboard.setCommands(button, commands);
+        List<Command> commands = getChoseCommands(button);
+        MarcoCommand marcoCommands = new MarcoCommand(commands);
+        keyboard.setCommands(button, marcoCommands);
     }
 
     private void showCommands() {
@@ -125,11 +152,9 @@ public class MainController {
     }
 
     private void undo(){
-        List<Command> commands = recordStack.pop();
-        for(Command command : commands){
-            command.undo();
-        }
-        undoStack.add(commands);
+        Command command = recordStack.pop();
+        command.undo();
+        undoStack.add(command);
     }
 
     public Keyboard getKeyboard() {
@@ -146,5 +171,29 @@ public class MainController {
 
     public void setCommands(List<Command> commands) {
         this.totalCommands = commands;
+    }
+
+    public Stack<Command> getRecordStack() {
+        return recordStack;
+    }
+
+    public void setRecordStack(Stack<Command> recordStack) {
+        this.recordStack = recordStack;
+    }
+
+    public Stack<Command> getUndoStack() {
+        return undoStack;
+    }
+
+    public void setUndoStack(Stack<Command> undoStack) {
+        this.undoStack = undoStack;
+    }
+
+    public List<Command> getTotalCommands() {
+        return totalCommands;
+    }
+
+    public void setTotalCommands(List<Command> totalCommands) {
+        this.totalCommands = totalCommands;
     }
 }

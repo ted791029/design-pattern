@@ -2,29 +2,25 @@ package com.ted.app;
 
 import com.ted.app.commands.Command;
 
-import java.util.List;
-
 public class Keyboard {
 
     private MainController mainController;
-    private List<Command>[] buttons = new List[26];
+    private Command[] buttons = new Command[26];
 
     public void clearAllCommands(){
-        buttons = new List[26];
+        buttons = new Command[26];
     }
 
     public void press(char button){
         //ToDo 防呆 'a' <= button <= 'z' && 按鍵有綁命令
-        List<Command> commands = buttons[button - 'a'];
-        for(Command command : commands){
-            command.execute();
-        }
-        mainController.addRecordStack(commands);
+        Command command = buttons[button - 'a'];
+        command.execute();
+        mainController.addRecordStack(command);
         mainController.cleanUndoStack();
     }
 
-    public void setCommands(char button, List<Command> commands){
-        buttons[button - 'a'] = commands;
+    public void setCommands(char button, Command command){
+        buttons[button - 'a'] = command;
     }
 
     public MainController getMainController() {

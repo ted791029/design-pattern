@@ -4,8 +4,8 @@ import com.ted.app.Map;
 import com.ted.app.mapObjects.Roles.Role;
 
 public class Healing extends State{
-    public Healing(Map map, Role role) {
-        super(map, role);
+    public Healing(Role role) {
+        super(role);
         setDuration(5);
     }
 

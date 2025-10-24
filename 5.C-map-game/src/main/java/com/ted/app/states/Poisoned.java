@@ -5,8 +5,8 @@ import com.ted.app.mapObjects.Roles.Role;
 import com.ted.app.mapObjects.Treasures.Poison;
 
 public class Poisoned extends State{
-    public Poisoned(Map map, Role role) {
-        super(map, role);
+    public Poisoned(Role role) {
+        super(role);
         setDuration(3);
     }
 

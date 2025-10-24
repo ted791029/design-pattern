@@ -12,15 +12,28 @@ import java.util.Random;
 
 public class Game {
 
+    public  static final Random rand = new Random();
+
     private Map map;
 
     private Character character;
 
-    private List<Monster> monsters = new ArrayList<>();
+    private List<Monster> monsters;
 
-    public  static final Random rand = new Random();
+    private List<Monster> toRemoveMonsters;
+
+    public Game(){
+        setMonsters(new ArrayList<>());
+        setToRemoveMonsters(new ArrayList<>());
+    }
 
     public void addMonster(Monster monster){
+        List<Monster> monsters = getMonsters();
+        monsters.add(monster);
+    }
+
+    public void addToRemoveMonster(Monster monster){
+        List<Monster> monsters = getToRemoveMonsters();
         monsters.add(monster);
     }
 
@@ -129,11 +142,10 @@ public class Game {
         character.generateStateEffect();
         List<Monster> monsters = getMonsters();
 
-        Iterator<Monster> it = monsters.iterator();
-        while (it.hasNext()){
-            Monster monster = it.next();
+        for(Monster monster : monsters){
             monster.generateStateEffect();
         }
+
     }
 
     private boolean isEnd(){
@@ -160,6 +172,7 @@ public class Game {
             generateStateEffectStage();
             showStage();
             characterStage();
+            removeMonsterStage();
             monstersStage();
             nextRound();
         }catch (Exception e){
@@ -178,12 +191,20 @@ public class Game {
         }
     }
 
-    public void removeMonster(Monster monster){
+    private void removeMonster(Monster monster){
         List<Monster> monsters = getMonsters();
         monsters.remove(monster);
 
         if(isEnd()){
             throw new Game.GameEndException();
+        }
+    }
+
+    private void removeMonsterStage(){
+        List<Monster> monsters = getToRemoveMonsters();
+
+        for (Monster monster : monsters){
+            removeMonster(monster);
         }
     }
 
@@ -226,6 +247,14 @@ public class Game {
 
     public void setMonsters(List<Monster> monsters) {
         this.monsters = monsters;
+    }
+
+    public List<Monster> getToRemoveMonsters() {
+        return toRemoveMonsters;
+    }
+
+    public void setToRemoveMonsters(List<Monster> toRemoveMonsters) {
+        this.toRemoveMonsters = toRemoveMonsters;
     }
 
     public static class GameEndException extends RuntimeException {}

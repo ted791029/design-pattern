@@ -5,8 +5,8 @@ import com.ted.app.mapObjects.MapObject;
 import com.ted.app.mapObjects.Roles.Role;
 
 public class Invincible extends State{
-    public Invincible(Map map, Role role) {
-        super(map, role);
+    public Invincible(Role role) {
+        super(role);
         setDuration(2);
     }
 

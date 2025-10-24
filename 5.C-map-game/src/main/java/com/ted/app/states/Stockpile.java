@@ -5,8 +5,8 @@ import com.ted.app.mapObjects.MapObject;
 import com.ted.app.mapObjects.Roles.Role;
 
 public class Stockpile extends State{
-    public Stockpile(Map map, Role role) {
-        super(map, role);
+    public Stockpile(Role role) {
+        super(role);
         setDuration(2);
     }
 
@@ -18,9 +18,8 @@ public class Stockpile extends State{
     }
     @Override
     protected void effectEnd(){
-        Map map = getMap();
         Role role = getRole();
-        role.enterState(new Erupting(map, role));
+        role.enterState(new Erupting(role));
     }
 
     @Override
@@ -28,8 +27,7 @@ public class Stockpile extends State{
         Role role = getRole();
         role.setHp(role.getHp() - damage);
         System.out.println(role + " 被 " + attacker + " 攻擊 ，受到了" + damage + "傷害");
-        Map map = getMap();
-        role.enterState(new Normal(map, role));
+        role.enterState(new Normal(role));
     }
 
     @Override

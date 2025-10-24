@@ -18,7 +18,7 @@ public class Poison extends Treasure{
     @Override
     protected State createState(Role role) {
         Map map = getMap();
-        return new Poisoned(map, role);
+        return new Poisoned(role);
     }
 
     @Override

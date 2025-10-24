@@ -19,7 +19,7 @@ public class HealingPotion extends Treasure{
     @Override
     protected State createState(Role role) {
         Map map = getMap();
-        return new Healing(map, role);
+        return new Healing(role);
     }
 
     @Override

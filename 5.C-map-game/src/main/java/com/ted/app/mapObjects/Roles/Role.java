@@ -6,6 +6,7 @@ import com.ted.app.mapObjects.MapObject;
 import com.ted.app.states.Normal;
 import com.ted.app.states.State;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.ted.app.Game.rand;
@@ -18,36 +19,55 @@ public abstract class Role extends MapObject {
 
     private int hp;
 
+    private String direction;
+
     private boolean isStateEffect = false;
 
     private int hpUpLimit;
 
     private int originDamage;
 
-    private State state = new Normal(getMap(),this);
+    private State state = new Normal(this);
 
     public Role(Game game, Map map, int row, int col, int no, char symbol) {
         super(game, map, row, col, no, symbol);
     }
 
-    public abstract void action();
+    public void action(){
+        State state = getState();
+        state.action();
+    }
 
-    protected void attack(){
-        List<MapObject> attackTargets = attackRange();
+    public void attack(){
+        List<MapObject> attackTargets = attackTargets();
 
         for (MapObject attackTarget : attackTargets){
 
             if(attackTarget instanceof Role attackTargetRole){
-
-                if(attackTargetRole.getClass() != this.getClass()){
-                    int attackDamage = getAttackDamage();
-                    attackTargetRole.takeDamage(this, attackDamage);
-                }
+                int attackDamage = getAttackDamage();
+                attackTargetRole.takeDamage(this, attackDamage);
             }
         }
     }
 
-    protected abstract List<MapObject> attackRange();
+    private List<MapObject> attackRange(){
+        State state = getState();
+        Map map = getMap();
+        return state.attackRange(map);
+    }
+
+    public List<MapObject> attackTargets(){
+        List<MapObject> targets = new ArrayList<>();
+        List<MapObject> objects = attackRange();
+
+        for(MapObject object : objects){
+
+            if(isAttackTarget(object)){
+                targets.add(object);
+            }
+        }
+        return targets;
+    }
 
     protected abstract  void dead();
 
@@ -63,6 +83,8 @@ public abstract class Role extends MapObject {
         State state = getState();
         state.generateEffect();
     }
+
+    protected abstract boolean isAttackTarget(MapObject object);
 
     private boolean isDead(){
         int hp = getHp();
@@ -90,7 +112,11 @@ public abstract class Role extends MapObject {
 
     }
 
-    protected abstract int[] moveTarget();
+    private int[] moveTarget(){
+        State state = getState();
+        Map map = getMap();
+        return state.moveTarget(map);
+    }
 
     @Override
     public void onTouched(Role role) {
@@ -105,7 +131,7 @@ public abstract class Role extends MapObject {
 
         if(hp == hpUpLimit){
             Map map = getMap();
-            enterState(new Normal(map, this));
+            enterState(new Normal(this));
         }
     }
 
@@ -166,6 +192,14 @@ public abstract class Role extends MapObject {
 
     public void setAttackDamage(int attackDamage) {
         this.attackDamage = attackDamage;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
     }
 
     public int getHp() {

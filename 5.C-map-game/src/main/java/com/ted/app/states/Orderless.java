@@ -6,18 +6,21 @@ import com.ted.app.mapObjects.Roles.Role;
 import static com.ted.app.Game.rand;
 
 public class Orderless extends State{
-    public Orderless(Map map, Role role) {
-        super(map, role);
+    public Orderless(Role role) {
+        super(role);
         setDuration(1);
     }
 
+
+    @Override
     public void action() {
         Role role = getRole();
         role.move();
         role.setStateEffect(true);
     }
 
-    public int[] moveTarget(){
+    @Override
+    public int[] moveTarget(Map map){
         int[] moveTarget = new int[2];
         Role role = getRole();
         int row = role.getRow();
@@ -44,8 +47,6 @@ public class Orderless extends State{
 
                 }
             }
-
-            Map map = getMap();
 
             if (!map.isOutSide(moveTarget[0], moveTarget[1])) {
                 break;

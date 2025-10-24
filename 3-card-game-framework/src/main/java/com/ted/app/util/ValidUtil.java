@@ -1,4 +1,4 @@
-package com.ted.app.Util;
+package com.ted.app.util;
 
 public class ValidUtil {
 

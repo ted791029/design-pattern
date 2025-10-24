@@ -8,14 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Erupting extends State{
-    public Erupting(Map map, Role role) {
-        super(map, role);
+    public Erupting(Role role) {
+        super(role);
         setDuration(1);
     }
 
     @Override
-    public List<MapObject> attackRange(){
-        Map map = getMap();
+    public List<MapObject> attackRange(Map map){
         Role role = getRole();
         List<MapObject> attackTargets = new ArrayList<>();
         int rows = map.getGridsRows();
@@ -38,11 +37,11 @@ public class Erupting extends State{
 
     @Override
     protected void effectEnd(){
-        Map map = getMap();
         Role role = getRole();
-        role.enterState(new Teleport(map, role));
+        role.enterState(new Teleport(role));
     }
 
+    @Override
     public void enterState(){
         Role role = getRole();
         int duration = getDuration();
@@ -50,6 +49,7 @@ public class Erupting extends State{
         role.setAttackDamage(50);
     }
 
+    @Override
     public void exitState(){
         Role role = getRole();
         int originDamage = role.getOriginDamage();

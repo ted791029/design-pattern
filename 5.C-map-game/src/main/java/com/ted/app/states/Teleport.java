@@ -4,8 +4,8 @@ import com.ted.app.Map;
 import com.ted.app.mapObjects.Roles.Role;
 
 public class Teleport extends State{
-    public Teleport(Map map, Role role) {
-        super(map, role);
+    public Teleport(Role role) {
+        super(role);
         setDuration(1);
     }
 

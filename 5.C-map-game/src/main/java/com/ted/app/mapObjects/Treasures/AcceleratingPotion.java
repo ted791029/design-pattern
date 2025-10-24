@@ -18,7 +18,7 @@ public class AcceleratingPotion extends Treasure{
     @Override
     protected State createState(Role role) {
         Map map = getMap();
-        return new Accelerated(map,role);
+        return new Accelerated(role);
     }
 
     @Override

@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/2.1-hero-fight/2.1-hero-fight.iml" filepath="$PROJECT_DIR$/2.1-hero-fight/2.1-hero-fight.iml" />
-      <module fileurl="file://$PROJECT_DIR$/2.1H-matchmaking-system/2.1H-matchmaking-system.iml" filepath="$PROJECT_DIR$/2.1H-matchmaking-system/2.1H-matchmaking-system.iml" />
       <module fileurl="file://$PROJECT_DIR$/2.2.1-template-method-practice/2.2.1-template-method-practice.iml" filepath="$PROJECT_DIR$/2.2.1-template-method-practice/2.2.1-template-method-practice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/design-pattern.iml" filepath="$PROJECT_DIR$/design-pattern.iml" />
     </modules>
   </component>
 </project>

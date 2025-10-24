@@ -5,8 +5,8 @@ import com.ted.app.mapObjects.MapObject;
 import com.ted.app.mapObjects.Roles.Role;
 
 public class Accelerated extends State{
-    public Accelerated(Map map, Role role) {
-        super(map, role);
+    public Accelerated(Role role) {
+        super(role);
         setDuration(3);
     }
 
@@ -29,8 +29,7 @@ public class Accelerated extends State{
         Role role = getRole();
         role.setHp(role.getHp() - damage);
         System.out.println(role + " 被 " + attacker + " 攻擊 ，受到了" + damage + "傷害");
-        Map map = getMap();
-        role.enterState(new Normal(map, role));
+        role.enterState(new Normal(role));
     }
 
     @Override

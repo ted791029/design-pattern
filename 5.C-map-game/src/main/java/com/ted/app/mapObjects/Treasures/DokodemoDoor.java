@@ -18,7 +18,7 @@ public class DokodemoDoor extends Treasure{
     @Override
     protected State createState(Role role) {
         Map map = getMap();
-        return new Teleport(map, role);
+        return new Teleport(role);
     }
 
     @Override

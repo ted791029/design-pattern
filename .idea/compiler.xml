@@ -6,17 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="5.B-shortcut-key" />
-        <module name="5.C-map-game" />
-        <module name="2.2H-card-game-framwork" />
-        <module name="2.1H-matchmaking-system" />
-        <module name="3.1H-youtube" />
-        <module name="2.B-Big2" />
-        <module name="2.3H-collision-detection" />
-        <module name="3-card-game-framework" />
-        <module name="2.2-student-group" />
-        <module name="3.2-controller" />
+        <module name="GYM5B-shortcut-key" />
+        <module name="GYM5A-youtube" />
+        <module name="GYM4A-collision-detection" />
+        <module name="GYM3-card-game-framework" />
+        <module name="GYM5C-map-game" />
+        <module name="GYM2-matchmaking-system" />
+        <module name="GYM4-Big2" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="2.2-student-group" target="17" />
+      <module name="3.2-controller" target="17" />
+      <module name="B-shortcut-key" target="17" />
+      <module name="GYM3-card-game-framwork" target="17" />
+      <module name="GYM5-rpg" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

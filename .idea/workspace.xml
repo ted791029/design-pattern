@@ -5,164 +5,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0c32b1f-3c62-4f09-8352-7c14ec070394" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/CandidateGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/RPG.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/Troop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/actionTarget/ActionTargetGroup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/actionTarget/ActionTargetType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/handler/onePunch/HighHpDamage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/handler/onePunch/InInspiredDamage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/handler/onePunch/InNormalDamage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/handler/onePunch/InPetrifiedDamage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/handler/onePunch/InPoisonedDamage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/handler/onePunch/OnePunchHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/observer/Observer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/role/Hero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/role/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/role/ai/AI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/role/ai/Slime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/state/Inspired.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/state/Normal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/state/Petrified.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/state/Poisoned.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/state/State.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/action/ActionStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/action/BasicAttack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/action/skill/CheerUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/action/skill/Curse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/action/skill/FireBall.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/action/skill/OnePunch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/action/skill/Petrochemical.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/action/skill/Poison.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/action/skill/SelfExplosion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/action/skill/SelfHealing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/action/skill/Skill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/action/skill/Summon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/action/skill/WaterBall.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/aiChoose/AIChooseStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/strategy/aiChoose/ChooseBySeed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/util/ExceptionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/util/ScannerUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/main/java/com/ted/app/util/ValidUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM5-rpg/src/test/java/MainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.1H-matchmaking-system/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/GYM2-matchmaking-system/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.1H-matchmaking-system/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GYM2-matchmaking-system/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.1H-matchmaking-system/src/main/java/com/ted/app/Coord.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM2-matchmaking-system/src/main/java/com/ted/app/Coord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.1H-matchmaking-system/src/main/java/com/ted/app/DistanceBasedStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM2-matchmaking-system/src/main/java/com/ted/app/DistanceBasedStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.1H-matchmaking-system/src/main/java/com/ted/app/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM2-matchmaking-system/src/main/java/com/ted/app/Gender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.1H-matchmaking-system/src/main/java/com/ted/app/HabitBasedStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM2-matchmaking-system/src/main/java/com/ted/app/HabitBasedStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.1H-matchmaking-system/src/main/java/com/ted/app/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM2-matchmaking-system/src/main/java/com/ted/app/Individual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.1H-matchmaking-system/src/main/java/com/ted/app/MatchMakingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM2-matchmaking-system/src/main/java/com/ted/app/MatchMakingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.1H-matchmaking-system/src/main/java/com/ted/app/MatchMakingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM2-matchmaking-system/src/main/java/com/ted/app/MatchMakingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.1H-matchmaking-system/src/test/java/com/ted/app/MatchMakingSystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM2-matchmaking-system/src/test/java/com/ted/app/MatchMakingSystemTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/showdown/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/showdown/AIPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/showdown/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/showdown/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/showdown/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/showdown/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/showdown/DiscardPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/showdown/DiscardPile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/showdown/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/showdown/Hand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/showdown/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/showdown/HumanPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/showdown/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/showdown/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/showdown/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/showdown/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/showdown/Rank.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/showdown/Rank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/showdown/Showdown.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/showdown/Showdown.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/showdown/Suit.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/showdown/Suit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/uno/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/uno/AIPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/uno/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/uno/HumanPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/uno/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/uno/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/main/java/ted/com/app/uno/Uno.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/main/java/ted/com/app/uno/Uno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/test/java/ted/com/app/showdown/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/test/java/ted/com/app/showdown/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.2H-card-game-framwork/src/test/java/ted/com/app/uno/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/src/test/java/ted/com/app/uno/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framwork/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/src/main/java/com/ted/app/ConllisonHandler/CollisionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/src/main/java/com/ted/app/ConllisonHandler/CollisionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/src/main/java/com/ted/app/ConllisonHandler/FireWaterCollisionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/src/main/java/com/ted/app/ConllisonHandler/FireWaterCollisionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/src/main/java/com/ted/app/ConllisonHandler/HeroFireCollisionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/src/main/java/com/ted/app/ConllisonHandler/HeroFireCollisionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/src/main/java/com/ted/app/ConllisonHandler/HeroWaterCollisionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/src/main/java/com/ted/app/ConllisonHandler/HeroWaterCollisionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/src/main/java/com/ted/app/ConllisonHandler/SameSpriteCollisionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/src/main/java/com/ted/app/ConllisonHandler/SameSpriteCollisionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/src/main/java/com/ted/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/src/main/java/com/ted/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/src/main/java/com/ted/app/Sprite/Coord.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/src/main/java/com/ted/app/Sprite/Coord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/src/main/java/com/ted/app/Sprite/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/src/main/java/com/ted/app/Sprite/Fire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/src/main/java/com/ted/app/Sprite/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/src/main/java/com/ted/app/Sprite/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/src/main/java/com/ted/app/Sprite/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/src/main/java/com/ted/app/Sprite/Sprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/src/main/java/com/ted/app/Sprite/Water.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/src/main/java/com/ted/app/Sprite/Water.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/src/main/java/com/ted/app/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/src/main/java/com/ted/app/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.3H-collision-detection/src/test/java/com/ted/app/WorldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/src/test/java/com/ted/app/WorldTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/AiPlayHandler/AIPlayHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/AiPlayHandler/AIPlayHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/AiPlayHandler/PlayFullHouseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/AiPlayHandler/PlayFullHouseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/AiPlayHandler/PlayPairHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/AiPlayHandler/PlayPairHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/AiPlayHandler/PlaySingleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/AiPlayHandler/PlaySingleHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/AiPlayHandler/PlayStraightHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/AiPlayHandler/PlayStraightHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/Big2.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/Big2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/Card/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/Card/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/Card/Rank.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/Card/Rank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/Card/Suit.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/Card/Suit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/CardPattern/CardPattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/CardPattern/CardPattern.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/CardPattern/FullHouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/CardPattern/FullHouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/CardPattern/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/CardPattern/Pair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/CardPattern/Single.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/CardPattern/Single.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/CardPattern/Straight.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/CardPattern/Straight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/CardPatternHandler/CardPatternHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/CardPatternHandler/CardPatternHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/CardPatternHandler/FullHouseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/CardPatternHandler/FullHouseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/CardPatternHandler/PairHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/CardPatternHandler/PairHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/CardPatternHandler/SingleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/CardPatternHandler/SingleHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/CardPatternHandler/StraightHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/CardPatternHandler/StraightHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/Hand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/PlayRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/PlayRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/Player/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/Player/AIPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/Player/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/Player/HumanPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/Player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/Player/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/java/com/ted/app/Round.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/java/com/ted/app/Round.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/main/resources/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/main/resources/test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.B-Big2/src/test/java/com/ted/app/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4-Big2/src/test/java/com/ted/app/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/GYM4A-collision-detection/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/DiscardPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/DiscardPile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/Hand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/cards/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/pocker/PokerCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/cards/pocker/PokerCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/pocker/Rank.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/cards/pocker/Rank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/pocker/Suit.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/cards/pocker/Suit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/uno/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/cards/uno/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/uno/Number.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/cards/uno/Number.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/cards/uno/UnoCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/cards/uno/UnoCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/games/CardGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/games/CardGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/games/Showdown.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/games/Showdown.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/games/Uno.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/games/Uno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/players/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/players/AIPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/players/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/players/HumanPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/players/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/players/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/util/ExceptionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/util/ExceptionUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/util/ScannerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/util/ScannerUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-card-game-framework/src/main/java/com/ted/app/util/ValidUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM3-card-game-framework/src/main/java/com/ted/app/util/ValidUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.1H-youtube/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5A-youtube/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.1H-youtube/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5A-youtube/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.1H-youtube/src/main/java/com.ted.app/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5A-youtube/src/main/java/com.ted.app/Channel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.1H-youtube/src/main/java/com.ted.app/ChannelObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5A-youtube/src/main/java/com.ted.app/ChannelObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.1H-youtube/src/main/java/com.ted.app/ChannelSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5A-youtube/src/main/java/com.ted.app/ChannelSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.1H-youtube/src/main/java/com.ted.app/Like.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5A-youtube/src/main/java/com.ted.app/Like.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.1H-youtube/src/main/java/com.ted.app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5A-youtube/src/main/java/com.ted.app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.1H-youtube/src/main/java/com.ted.app/NotificationResponseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5A-youtube/src/main/java/com.ted.app/NotificationResponseType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.1H-youtube/src/main/java/com.ted.app/Unsubscribe.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5A-youtube/src/main/java/com.ted.app/Unsubscribe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.1H-youtube/src/main/java/com.ted.app/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5A-youtube/src/main/java/com.ted.app/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.1H-youtube/src/main/java/com.ted.app/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5A-youtube/src/main/java/com.ted.app/Video.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/src/main/java/com/ted/app/Keyboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/src/main/java/com/ted/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/src/main/java/com/ted/app/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/src/main/java/com/ted/app/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/Telecom.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/src/main/java/com/ted/app/Telecom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/src/main/java/com/ted/app/commands/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/ConnectTelecomCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/src/main/java/com/ted/app/commands/ConnectTelecomCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/DisconnectTelecomCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/src/main/java/com/ted/app/commands/DisconnectTelecomCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/MarcoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/src/main/java/com/ted/app/commands/MarcoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/MoveTankBackwardCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/src/main/java/com/ted/app/commands/MoveTankBackwardCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/MoveTankForwardCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/src/main/java/com/ted/app/commands/MoveTankForwardCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.B-shortcut-key/src/main/java/com/ted/app/commands/ResetMainControllerKeyboardCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5B-shortcut-key/src/main/java/com/ted/app/commands/ResetMainControllerKeyboardCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/MapObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/mapObjects/MapObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/mapObjects/Obstacle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Roles/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/mapObjects/Roles/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Roles/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/mapObjects/Roles/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Roles/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/mapObjects/Roles/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/AcceleratingPotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/AcceleratingPotion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/DevilFruit.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/DevilFruit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/DokodemoDoor.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/DokodemoDoor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/HealingPotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/HealingPotion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/KingsRock.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/KingsRock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/Poison.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/Poison.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/SuperStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/SuperStar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/Treasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/mapObjects/Treasures/Treasure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Accelerated.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/states/Accelerated.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Erupting.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/states/Erupting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Healing.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/states/Healing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Invincible.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/states/Invincible.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Normal.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/states/Normal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Orderless.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/states/Orderless.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Poisoned.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/states/Poisoned.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/states/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Stockpile.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/states/Stockpile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/states/Teleport.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/states/Teleport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/util/ScannerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/util/ScannerUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.C-map-game/src/main/java/com/ted/app/util/ValidUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM5C-map-game/src/main/java/com/ted/app/util/ValidUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +63,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -195,19 +86,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "17.0.7",
+    "last_opened_file_path": "D:/sourcetree/design-pattern"
   }
-}</component>
-  <component name="RunManager" selected="Application.Main (1)">
+}]]></component>
+  <component name="RunManager" selected="JUnit.MainTest.testBattleScenario">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ted.app.Game" />
       <module name="GYM4-Big2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ted.app.*" />
+          <option name="PATTERN" value="com.ted.app.actionTarget.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -217,7 +111,7 @@
     </configuration>
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
-      <module name="GYM5B-shortcut-key" />
+      <module name="GYM5-rpg" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.ted.app.*" />
@@ -241,12 +135,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
-      <module name="GYM5A-youtube" />
+      <module name="GYM4A-collision-detection" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ted.app.*" />
+          <option name="PATTERN" value="com.ted.app.actionTarget.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -256,10 +150,10 @@
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
-      <module name="GYM3-card-game-framework" />
+      <module name="GYM5A-youtube" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ted.app.*" />
+          <option name="PATTERN" value="com.ted.app.actionTarget.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -267,13 +161,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
+      <module name="GYM5B-shortcut-key" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ted.app.actionTarget.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GYM5-rpg" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest.testBattleScenario" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GYM5-rpg" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainTest" />
+      <option name="METHOD_NAME" value="testBattleScenario" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MainTest.testBattleScenario" />
+        <item itemvalue="JUnit.MainTest" />
         <item itemvalue="Application.Main (1)" />
-        <item itemvalue="Application.Main (3)" />
         <item itemvalue="Application.Main (2)" />
         <item itemvalue="Application.Game" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -287,5 +213,28 @@
       <updated>1760373839359</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.ted.app.Troop" memberName="id" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="((java.util.LinkedList)((Troop)((RPG)this).troop2).roles).get(0)" custom="com.ted.app.RPG,java.util.LinkedList,com.ted.app.Troop" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

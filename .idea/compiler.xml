@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="GYM5B-shortcut-key" />
         <module name="GYM5A-youtube" />
+        <module name="GYM5-rpg" />
         <module name="GYM4A-collision-detection" />
         <module name="GYM3-card-game-framework" />
         <module name="GYM5C-map-game" />
@@ -20,7 +21,6 @@
       <module name="3.2-controller" target="17" />
       <module name="B-shortcut-key" target="17" />
       <module name="GYM3-card-game-framwork" target="17" />
-      <module name="GYM5-rpg" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

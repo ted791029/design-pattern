@@ -14,6 +14,7 @@
         <module name="GYM5C-map-game" />
         <module name="GYM2-matchmaking-system" />
         <module name="GYM4-Big2" />
+        <module name="GYM6-prescriber-system" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +22,7 @@
       <module name="3.2-controller" target="17" />
       <module name="B-shortcut-key" target="17" />
       <module name="GYM3-card-game-framwork" target="17" />
+      <module name="GYM6" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

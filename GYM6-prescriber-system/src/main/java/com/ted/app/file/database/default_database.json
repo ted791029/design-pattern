@@ -1,0 +1,22 @@
+[
+  { "id": "J216688066", "name": "Alice",  "age": 30, "gender": "FEMALE", "height": 165, "weight": 60, "cases": [] },
+  { "id": "V113401538", "name": "Bob",    "age": 28, "gender": "MALE",   "height": 175, "weight": 72, "cases": [] },
+  { "id": "L112084730", "name": "Cathy",  "age": 26, "gender": "FEMALE", "height": 162, "weight": 55, "cases": [] },
+  { "id": "Y215873357", "name": "David",  "age": 33, "gender": "MALE",   "height": 180, "weight": 80, "cases": [] },
+  { "id": "C213104781", "name": "Emma",   "age": 29, "gender": "FEMALE", "height": 158, "weight": 50, "cases": [] },
+  { "id": "V113661614", "name": "Frank",  "age": 40, "gender": "MALE",   "height": 170, "weight": 68, "cases": [] },
+  { "id": "K100463534", "name": "Grace",  "age": 35, "gender": "FEMALE", "height": 168, "weight": 62, "cases": [] },
+  { "id": "M217841532", "name": "Henry",  "age": 31, "gender": "MALE",   "height": 178, "weight": 75, "cases": [] },
+  { "id": "R203624278", "name": "Ivy",    "age": 27, "gender": "FEMALE", "height": 160, "weight": 53, "cases": [] },
+  { "id": "H110132188", "name": "Jack",   "age": 24, "gender": "MALE",   "height": 172, "weight": 65, "cases": [] },
+  { "id": "U107455663", "name": "Kelly",  "age": 20, "gender": "FEMALE", "height": 167, "weight": 59, "cases": [] },
+  { "id": "F210328648", "name": "Leo",    "age": 38, "gender": "MALE",   "height": 182, "weight": 85, "cases": [] },
+  { "id": "S215024869", "name": "Mia",    "age": 25, "gender": "FEMALE", "height": 155, "weight": 48, "cases": [] },
+  { "id": "Q101066435", "name": "Nick",   "age": 29, "gender": "MALE",   "height": 176, "weight": 70, "cases": [] },
+  { "id": "X108257457", "name": "Olivia", "age": 34, "gender": "FEMALE", "height": 164, "weight": 57, "cases": [] },
+  { "id": "T214630515", "name": "Peter",  "age": 36, "gender": "MALE",   "height": 174, "weight": 73, "cases": [] },
+  { "id": "J118080806", "name": "Queen",  "age": 23, "gender": "FEMALE", "height": 159, "weight": 51, "cases": [] },
+  { "id": "U112821455", "name": "Ryan",   "age": 28, "gender": "MALE",   "height": 181, "weight": 77, "cases": [] },
+  { "id": "U218300519", "name": "Sophie", "age": 30, "gender": "FEMALE", "height": 166, "weight": 58, "cases": [] },
+  { "id": "X101517861", "name": "Tom",    "age": 37, "gender": "MALE",   "height": 179, "weight": 79, "cases": [] }
+]

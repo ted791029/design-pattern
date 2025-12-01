@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0c32b1f-3c62-4f09-8352-7c14ec070394" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GYM6-prescriber-system/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM6-prescriber-system/src/main/java/com/ted/app/PrescriptionDemandFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM-6A- friends-relationship-analyzer/src/main/java/com/ted/app/CLI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -59,7 +58,7 @@
       <recent name="D:\sourcetree\design-pattern\GYM6-prescriber-system\src\main\java\com\ted\app\file\database" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main (3)">
+  <component name="RunManager" selected="Application.Main (2)">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
       <module name="GYM5-rpg" />
@@ -75,7 +74,7 @@
     </configuration>
     <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
-      <module name="GYM4A-collision-detection" />
+      <module name="GYM-6A-friends-relationship-analyzer" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.ted.app.*" />
@@ -101,10 +100,23 @@
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
-      <module name="GYM5A-youtube" />
+      <module name="GYM6-prescriber-system" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ted.app.actionTarget.*" />
+          <option name="PATTERN" value="com.ted.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
+      <module name="GYM-6A-friends-relationship-analyzer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ted.app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -146,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (2)" />
         <item itemvalue="Application.Main (3)" />
         <item itemvalue="JUnit.MainTest.testBattleScenario" />
         <item itemvalue="JUnit.MainTest" />
         <item itemvalue="Application.Main (1)" />
-        <item itemvalue="Application.Main (2)" />
       </list>
     </recent_temporary>
   </component>

@@ -25,10 +25,14 @@
         <option value="$PROJECT_DIR$/GYM5-rpg/pom.xml" />
         <option value="$PROJECT_DIR$/../GYN6/pom.xml" />
         <option value="$PROJECT_DIR$/GYM6-prescriber-system/pom.xml" />
+        <option value="$PROJECT_DIR$/../GYM-6A/pom.xml" />
+        <option value="$PROJECT_DIR$/GYM-6A/pom.xml" />
+        <option value="$PROJECT_DIR$/GYM-6A- friends-relationship-analyzer/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/../GYM-6A/pom.xml" />
         <option value="$PROJECT_DIR$/2.2-student-group/pom.xml" />
         <option value="$PROJECT_DIR$/3.2-controller/pom.xml" />
         <option value="$PROJECT_DIR$/GYM3-card-game-framwork/pom.xml" />

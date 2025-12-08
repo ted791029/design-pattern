@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 
 public class PrescriptionDemandFacade {
 
-    private final PrescriberSystem prescriberSystem = prescriberSystemInit();
+    private PrescriberSystem prescriberSystem;
 
     public static final String DATABASE_FILE_PATH = "D:\\sourcetree\\design-pattern\\GYM6-prescriber-system\\src\\main\\java\\com\\ted\\app\\file\\database\\";
 
@@ -39,7 +39,7 @@ public class PrescriptionDemandFacade {
     public static final int PRESCRIPTION_DEMAND = 0x01 << 2;
 
     public PrescriptionDemandFacade() throws IOException {
-
+        prescriberSystemInit();
     }
 
     private void export(Case c, String fileName, ExportType type) throws IOException {
@@ -150,15 +150,14 @@ public class PrescriptionDemandFacade {
         prescriberThread.start();
     }
 
-    private PrescriberSystem prescriberSystemInit() throws IOException {
+    private void prescriberSystemInit() throws IOException {
         PatientDatabase patientDatabase = new PatientDatabase();
         BlockingQueue<PrescriptionDemandInfo> queue = new LinkedBlockingQueue<>();
         DiseasesHandler handler = handlerInit();
         Prescriber prescriber = new Prescriber(handler, queue);
-        PrescriberSystem prescriberSystem = new PrescriberSystem(patientDatabase, prescriber, queue);
+        prescriberSystem = new PrescriberSystem(patientDatabase, prescriber, queue);
         updateDatabase("default_database.json");
         prescriberRun(prescriber);
-        return prescriberSystem;
     }
 
     public void request(PrescriptionDemandRequest request) throws IOException {

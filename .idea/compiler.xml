@@ -7,17 +7,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="GYM5B-shortcut-key" />
-        <module name="GYM5A-youtube" />
-        <module name="GYM5-rpg" />
         <module name="GYM4A-collision-detection" />
         <module name="GYM6B-employee-database" />
         <module name="GYM3-card-game-framework" />
+        <module name="GYM6-prescriber-system" />
+        <module name="GYM5A-youtube" />
+        <module name="GYM5-rpg" />
         <module name="GYM6A-friends-relationship-analyzer" />
         <module name="GYM6C-logger" />
         <module name="GYM5C-map-game" />
+        <module name="GYM7" />
         <module name="GYM2-matchmaking-system" />
         <module name="GYM4-Big2" />
-        <module name="GYM6-prescriber-system" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

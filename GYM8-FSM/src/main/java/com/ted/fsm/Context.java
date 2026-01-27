@@ -2,37 +2,29 @@ package com.ted.fsm;
 
 import java.util.Map;
 
-public class Context {
+public class Context<EN> {
 
-    private Event event;
+    private Event<EN> event;
 
-    private Map<String, String> resultMap;
+    public Map<String, String> resultMap;
 
-    private State state;
+    private AbstractState<EN> state;
 
-    public Context(Event event, Map<String, String> resultMap, State state) {
+    public Context(Event<EN> event, Map<String, String> resultMap, AbstractState<EN> state) {
         this.event = event;
         this.resultMap = resultMap;
         this.state = state;
-    }
-
-    public void addEventResult(String key, String result){
-        resultMap.put(key, result);
-    }
-
-    public String getEventPayload(){
-        return event.getPayload();
     }
 
 
     //===================================
 
 
-    public Event getEvent() {
+    public Event<EN> getEvent() {
         return event;
     }
 
-    public void setEvent(Event event) {
+    public void setEvent(Event<EN> event) {
         this.event = event;
     }
 
@@ -44,11 +36,11 @@ public class Context {
         this.resultMap = resultMap;
     }
 
-    public State getState() {
+    public AbstractState<EN> getState() {
         return state;
     }
 
-    public void setState(State state) {
+    public void setState(AbstractState<EN> state) {
         this.state = state;
     }
 }

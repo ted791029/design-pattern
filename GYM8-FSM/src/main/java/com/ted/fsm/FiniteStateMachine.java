@@ -1,45 +1,43 @@
 package com.ted.fsm;
 
+import com.ted.fsm.status.ComponentState;
+
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class FiniteStateMachine {
+public class FiniteStateMachine<EN> {
 
-    private State current;
+    private AbstractState<EN> current;
 
-    private State initial;
+    private AbstractState<EN> initial;
 
-    private Map<String, String> resultMap;
+    public Map<String, String> resultMap = new LinkedHashMap<>();
 
-    private Map<State, List<Transition>> transitionMap;
+    private Map<AbstractState<EN>, List<Transition<EN>>> transitionMap;
 
 
-    public FiniteStateMachine(State initial, List<Transition> transitions, Map<String, String> resultMap) {
+    public FiniteStateMachine(AbstractState<EN> initial, List<? extends Transition<EN>> transitions) {
         this.current = initial;
         this.initial = initial;
         setTransitionMap(transitions);
-        this.resultMap = resultMap;
     }
 
-    public void clearResultMap(){
+    public void clearMap() {
         resultMap.clear();
     }
 
-    public void sendEvent(Event event) {
-        Context context = initContext(event);
-
-        if(current != null && current.getCurrent() != null){
-            current.sendEvent(event);
-        }
-
-        //TODO 子狀態機做了，父狀態機不可做(response和transfer要分開判斷)
+    public Map<String, String> sendEvent(Event<EN> event) {
+        Context<EN> context = initContext(event);
+        sendEventToChildFsm(event);
         current.response(context);
         transfer(context);
+        return context.getResultMap();
     }
 
-    private void execute(Action action, Context context) {
+    private void execute(Action<EN> action, Context<EN> context) {
 
         if (action == null) {
             return;
@@ -48,30 +46,74 @@ public class FiniteStateMachine {
         action.execute(context);
     }
 
-    private Optional<Transition> getTransition(Context context, List<Transition> transitions) {
+    private Optional<Transition<EN>> getTransition(Context<EN> context, List<Transition<EN>> transitions) {
         if (transitions == null) return Optional.empty();
         return transitions.stream()
                 .filter(t -> t.match(context))
                 .findFirst();
     }
 
-    private Context initContext(Event event) {
-        return new Context(event, resultMap, current);
+    private Context<EN> initContext(Event<EN> event) {
+        return new Context<>(event, resultMap, current);
     }
 
-    private void transfer(Context context) {
+    private void loopEntryAction(AbstractState<EN> to, Context<EN> context) {
+        AbstractState<EN> temp = to;
+
+        while (true) {
+            context.setState(temp);
+            execute(temp.getEnter(), context);
+
+            if (temp.isComponent()) {
+                ComponentState<EN> componentStatus = (ComponentState<EN>) temp;
+                temp = componentStatus.getCurrent();
+            } else {
+                return;
+            }
+        }
+
+    }
+
+
+    private void loopExitAction(AbstractState<EN> form, Context<EN> context) {
+        AbstractState<EN> temp = form;
+
+        while (true) {
+            context.setState(temp);
+            execute(temp.getExit(), context);
+
+            if (temp.isComponent()) {
+                ComponentState<EN> componentStatus = (ComponentState<EN>) temp;
+                temp = componentStatus.getCurrent();
+            } else {
+                return;
+            }
+        }
+
+    }
+
+    private void sendEventToChildFsm(Event<EN> event) {
+        if (current != null && current.isComponent()) {
+            ComponentState<EN> componentStatus = (ComponentState<EN>) current;
+            Map<String, String> childResultMap = componentStatus.sendEvent(event);
+            resultMap.putAll(childResultMap);
+            componentStatus.clearMap();
+        }
+    }
+
+    private void transfer(Context<EN> context) {
 
         if (transitionMap == null) {
             return;
         }
 
-        List<Transition> transitions = transitionMap.get(current);
+        List<Transition<EN>> transitions = transitionMap.get(current);
 
         //為空需往子FSM找，故transitions == null 防呆於 getTransition 中
-        Optional<Transition> transitionOp = getTransition(context, transitions);
+        Optional<Transition<EN>> transitionOp = getTransition(context, transitions);
 
         if (transitionOp.isPresent()) {
-            Transition transition = transitionOp.get();
+            Transition<EN> transition = transitionOp.get();
             loopExitAction(transition.getFrom(), context);
             execute(transition.getAction(), context);
             current = transition.getTo();
@@ -81,49 +123,27 @@ public class FiniteStateMachine {
     }
 
 
-    private Map<State, List<Transition>> toMap(List<Transition> transitions) {
+    private Map<AbstractState<EN>, List<Transition<EN>>> toMap(List<? extends Transition<EN>> transitions) {
         return transitions.stream()
                 .collect(Collectors.groupingBy(Transition::getFrom));
-    }
-
-    private void loopExitAction(State form, Context context){
-        State temp = form;
-
-        while (temp != null){
-            context.setState(temp);
-            execute(temp.getExit(), context);
-            temp = temp.getCurrent();
-        }
-
-    }
-
-    private void loopEntryAction(State to, Context context){
-        State temp = to;
-
-        while (temp != null){
-            context.setState(temp);
-            execute(temp.getEnter(), context);
-            temp = temp.getCurrent();
-        }
-
     }
 
     //===========================================
 
 
-    public State getCurrent() {
+    public AbstractState<EN> getCurrent() {
         return current;
     }
 
-    public void setCurrent(State current) {
+    public void setCurrent(AbstractState<EN> current) {
         this.current = current;
     }
 
-    public State getInitial() {
+    public AbstractState<EN> getInitial() {
         return initial;
     }
 
-    public void setInitial(State initial) {
+    public void setInitial(AbstractState<EN> initial) {
         this.initial = initial;
     }
 
@@ -135,11 +155,11 @@ public class FiniteStateMachine {
         this.resultMap = resultMap;
     }
 
-    public Map<State, List<Transition>> getTransitionMap() {
+    public Map<AbstractState<EN>, List<Transition<EN>>> getTransitionMap() {
         return transitionMap;
     }
 
-    public void setTransitionMap(List<Transition> transitions) {
+    public void setTransitionMap(List<? extends Transition<EN>> transitions) {
         if (transitions != null) {
             this.transitionMap = toMap(transitions);
         }

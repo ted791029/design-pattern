@@ -1,51 +1,45 @@
 package com.ted;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.ted.app.waterballCommunity.*;
+import com.ted.app.waterballCommunity.chanel.Broadcast;
+import com.ted.app.waterballCommunity.chanel.ChatRoom;
+import com.ted.app.waterballCommunity.chanel.Forum;
+import com.ted.app.waterballCommunity.handlers.botResponses.*;
+import com.ted.app.waterballCommunity.handlers.printHandler.*;
+import com.ted.app.waterballCommunity.handlers.printHandler.PrintBotGoBroadcastingHandler;
+import com.ted.app.waterballCommunityBot.Bot;
+import com.ted.app.waterballCommunityBot.BotConfigurerAdapter;
+import com.ted.app.BotStatus;
+import com.ted.bot.BotEvent;
+import com.ted.app.BotEventName;
+import com.ted.bot.BotFSMFacade;
+
+
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.ted.app.BotResponseHandler;
-import com.ted.app.Chanel;
-import com.ted.app.EventManager;
-import com.ted.app.Message;
-import com.ted.app.Post;
-import com.ted.app.Printer;
-import com.ted.app.Speak;
-import com.ted.app.Tag;
-import com.ted.app.User;
-import com.ted.app.WaterballCommunity;
-import com.ted.app.chanel.Broadcast;
-import com.ted.app.chanel.ChatRoom;
-import com.ted.app.chanel.Forum;
-import com.ted.bot.BotEvent;
-import com.ted.bot.BotEventName;
-import com.ted.bot.BotFacade;
-
 public class TestCaseRunner {
-
+    private Bot bot;
+    private BotFSMFacade<BotStatus, BotEventName> fsmFacade;
     private WaterballCommunity community;
     private EventManager eventManager;
     private ChatRoom chatRoom;
     private Forum forum;
     private Broadcast broadcast;
-    private Map<String, User> users;
+    private Map<String, Member> members;
     private String inputFilePath;
     private ByteArrayOutputStream outputStream;
     private PrintStream originalOut;
     private BotResponseHandler botResponseHandler;
     private Printer printer;
+    private PrintHandler printHandler;
 
     public TestCaseRunner(String inputFilePath) {
         this.inputFilePath = inputFilePath;
@@ -331,12 +325,63 @@ public class TestCaseRunner {
 
     private void handleStarted(JsonObject json) throws InterruptedException {
         community = new WaterballCommunity();
-        users = new HashMap<>();
+        members = new HashMap<>();
+        bot = new Bot();
         int quota = json.get("quota").getAsInt();
-        BotFacade botFacade = new BotFacade(community, quota);
-        botResponseHandler = new BotResponseHandler();
-        printer = new Printer();
-        eventManager = new EventManager(botFacade, botResponseHandler, printer);
+        fsmFacade = new BotFSMFacade<>(new BotConfigurerAdapter(community, bot));
+        bot.setBotFacade(fsmFacade);
+        bot.setCommunity(community);
+        bot.setQuota(quota);
+        botResponseHandler = new BotGenerateQuestionHandler(
+                new BotGoBroadcastingHandler(
+                        new BotKnowledgeKingStartAgainHandler(
+                                new BotRecordReplayHandler(
+                                        new BotReplayPostHandler(
+                                                new BotReplyCorrectAnswerHandler(
+                                                        new BotReplyKnowledgeKingIsStartedHandler(
+                                                                new BotReplyMessageHandler(
+                                                                        new BotSpeakHandler(
+                                                                                new BotStopBroadcastingHandler(
+                                                                                        null
+                                                                                )
+                                                                        )
+                                                                )
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+
+        printHandler = new PrintBotGoBroadcastingHandler(
+                new PrintBotKnowledgeKingStartAgainHandler(
+                        new PrintBotNewCommentHandler(
+                                new PrintBotNewMessageHandler(
+                                        new PrintBotSpeakHandler(
+                                                new PrintBotStopBroadcastingHandler(
+                                                        new PrintGoBroadcastingHandler(
+                                                                new PrintNewMessageHandler(
+                                                                        new PrintNewPostHandler(
+                                                                                new PrintSpeakHandler(
+                                                                                        new PrintStopBroadcastingHandler(
+                                                                                                new PrintTimeElapsedHandler(
+                                                                                                        null
+                                                                                                )
+                                                                                        )
+                                                                                )
+                                                                        )
+                                                                )
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+
+        printer = new Printer(printHandler);
+        eventManager = new EventManager(bot, botResponseHandler, printer);
         chatRoom = new ChatRoom();
         forum = new Forum();
         broadcast = new Broadcast();
@@ -346,22 +391,22 @@ public class TestCaseRunner {
         chanelMap.put("Broadcast", broadcast);
         community.setChanelMap(chanelMap);
         community.setManager(eventManager);
-        community.setOnlineUsers(users);
+        community.setOnlineMembers(members);
     }
 
     private void handleLogin(JsonObject json) throws InterruptedException {
-        String userId = json.get("userId").getAsString();
+        String memberId = json.get("memberId").getAsString();
         boolean isAdmin = json.get("isAdmin").getAsBoolean();
 
-        User user = new User(userId, isAdmin);
-        community.login(user);
+        Member member = new Member(memberId, isAdmin);
+        community.login(member);
     }
 
     private void handleLogout(JsonObject json) throws InterruptedException {
-        String userId = json.get("userId").getAsString();
-        User user = users.get(userId);
-        if (user != null) {
-            community.logout(user);
+        String memberId = json.get("memberId").getAsString();
+        Member member = members.get(memberId);
+        if (member != null) {
+            community.logout(member);
         }
     }
 
@@ -370,8 +415,8 @@ public class TestCaseRunner {
         String content = json.get("content").getAsString();
         JsonArray tagsArray = json.getAsJsonArray("tags");
 
-        User user = users.get(authorId);
-        if (user == null) {
+        Member member = members.get(authorId);
+        if (member == null) {
             return;
         }
 
@@ -381,7 +426,7 @@ public class TestCaseRunner {
             tags.add(new Tag(tagValue));
         }
 
-        Message message = new Message(content, tags, user);
+        Message message = new Message(content, tags, member);
         chatRoom.send(message);
     }
 
@@ -392,8 +437,8 @@ public class TestCaseRunner {
         String content = json.get("content").getAsString();
         JsonArray tagsArray = json.getAsJsonArray("tags");
 
-        User user = users.get(authorId);
-        if (user == null) {
+        Member member = members.get(authorId);
+        if (member == null) {
             return;
         }
 
@@ -403,7 +448,7 @@ public class TestCaseRunner {
             tags.add(new Tag(tagValue));
         }
 
-        Post post = new Post(content, id, tags, title, user);
+        Post post = new Post(content, id, tags, title, member);
         forum.send(post);
     }
 
@@ -411,34 +456,34 @@ public class TestCaseRunner {
         String speakerId = json.get("speakerId").getAsString();
         String content = json.get("content").getAsString();
 
-        User user = users.get(speakerId);
-        if (user == null) {
+        Member member = members.get(speakerId);
+        if (member == null) {
             return;
         }
 
-        Speak speak = new Speak(content, user);
+        Speak speak = new Speak(content, member);
         broadcast.send(speak);
     }
 
     private void handleGoBroadcasting(JsonObject json) throws InterruptedException {
         // 根據 Broadcast 類的實現，調用 goBroadcasting 方法
         String speakerId = json.get("speakerId").getAsString();
-        User user = users.get(speakerId);
-        if (user == null) {
+        Member member = members.get(speakerId);
+        if (member == null) {
             return;
         }
 
-        broadcast.goBroadcasting(user);
+        broadcast.goBroadcasting(member);
     }
 
     private void handleStopBroadcasting(JsonObject json) throws InterruptedException {
         // 根據 Broadcast 類的實現，調用 stopBroadcasting 方法
         String speakerId = json.get("speakerId").getAsString();
-        User user = users.get(speakerId);
-        if (user == null) {
+        Member member = members.get(speakerId);
+        if (member == null) {
             return;
         }
-        broadcast.stopBroadcasting(user);
+        broadcast.stopBroadcasting(member);
     }
 
     private void handleTimeElapsed(String line) throws InterruptedException {
@@ -446,17 +491,17 @@ public class TestCaseRunner {
         // 移除方括號和 "elapsed"
         String content = line.replace("[", "").replace("]", "") + "...";
         String time = line.replace("[", "").replace("]", "").replace(" elapsed", "").trim();
-        
+
         // 提取數字和單位
         String[] parts = time.split("\\s+");
         if (parts.length != 2) {
             return; // 格式不正確，忽略
         }
-        
+
         try {
             int value = Integer.parseInt(parts[0]);
             String unit = parts[1].toLowerCase();
-            
+
             // 轉換為毫秒
             long milliseconds = 0;
             switch (unit) {
@@ -475,19 +520,19 @@ public class TestCaseRunner {
                 default:
                     return; // 未知單位，忽略
             }
-            
+
             // 創建 JSON payload
             JsonObject payloadJson = new JsonObject();
             payloadJson.addProperty("time", milliseconds);
             payloadJson.addProperty("content", content);
             String payload = payloadJson.toString();
 
-            if(unit.equals("seconds")){
+            if (unit.equals("seconds")) {
                 Thread.sleep(1000);
             }
-            
+
             // 創建並提交 TIME_ELAPSED 事件
-            EventManager.submit(new BotEvent(BotEventName.TIME_ELAPSED.getName(), payload));
+            EventManager.submit(new BotEvent<>(BotEventName.TIME_ELAPSED, payload));
         } catch (NumberFormatException e) {
             // 數字解析失敗，忽略
             return;

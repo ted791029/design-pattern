@@ -1,6 +1,6 @@
 package com.ted.fsm;
 
-public interface Action {
+public interface Action<EN> {
 
-    public void execute(Context context);
+    public void execute(Context<EN> context);
 }

@@ -1,10 +1,10 @@
 package com.ted.fsm;
 
-public interface Event {
+public interface Event<EN> {
 
-    public String getEventName();
+    public EN getEventName();
 
     public String getPayload();
 
-    public  boolean match(Event event);
+    public boolean match(Event<EN> event);
 }

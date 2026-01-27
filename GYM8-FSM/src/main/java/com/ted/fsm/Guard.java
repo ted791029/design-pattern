@@ -1,6 +1,6 @@
 package com.ted.fsm;
 
-public interface Guard {
+public interface Guard<EN> {
 
-    public boolean evaluate(Context context);
+    public boolean evaluate(Context<EN> context);
 }

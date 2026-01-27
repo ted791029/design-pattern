@@ -2,15 +2,20 @@ package com.ted.bot;
 
 import com.ted.fsm.Event;
 
-public class BotEvent implements Event {
-    private String eventName;
+public class BotEvent<EN> implements Event<EN> {
+    private EN eventName;
 
     private String payload;
 
-    public BotEvent(String eventName, String payload) {
+    public BotEvent(EN eventName, String payload) {
         this.eventName = eventName;
         this.payload = payload;
     }
+
+    public BotEvent(EN eventName) {
+        this.eventName = eventName;
+    }
+
 
     @Override
     public boolean match(Event event) {
@@ -21,11 +26,11 @@ public class BotEvent implements Event {
     //=============================
 
     @Override
-    public String getEventName() {
+    public EN getEventName() {
         return eventName;
     }
 
-    public void setEventName(String eventName) {
+    public void setEventName(EN eventName) {
         this.eventName = eventName;
     }
 

@@ -41,19 +41,20 @@ public class JsonUtil {
         return list;
     }
 
-    public static JsonArray getJsonArray(String key, String json){
+    public static JsonArray getJsonArray(String key, String json) {
         JsonObject jsonObject = JsonParser.parseString(json).getAsJsonObject();
         return jsonObject.getAsJsonArray(key);
     }
 
-    public static JsonArray toJsonArray(List<String> list){
-       return new Gson().toJsonTree(list).getAsJsonArray();
+    public static JsonArray toJsonArray(List<String> list) {
+        return new Gson().toJsonTree(list).getAsJsonArray();
     }
-    public static JsonObject toJsonObject(String json){
+
+    public static JsonObject toJsonObject(String json) {
         return gson.fromJson(json, JsonObject.class);
     }
 
-    public static JsonObject toJsonObject(Object object){
+    public static JsonObject toJsonObject(Object object) {
         JsonElement jsonElement = gson.toJsonTree(object);
         return jsonElement.getAsJsonObject();
     }

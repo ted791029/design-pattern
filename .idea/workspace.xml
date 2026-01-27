@@ -5,29 +5,109 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0c32b1f-3c62-4f09-8352-7c14ec070394" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/WaterballCommunity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/BotEventName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/BotEventResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/actions/DefaultConversationEntryAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/actions/InteractingEntryAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/actions/QuestioningEntryAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/actions/TanksForJoiningEntryAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/actions/ThanksForJoiningToQuestioningAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/guards/DefaultConversationUserMaxLimit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/guards/InteractingUserMinLimit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/guards/KnowledgeKingToNormalCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/guards/RecordToNormalCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/guards/ThanksForJoiningToQuestioningCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/stateResponseHandlers/PostWithConversationHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/stateResponseHandlers/TimeElapsedWithQuestioningHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/states/KnowledgeKing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/states/Questioning.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/states/ThanksForJoining.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/BotResponseHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/Chanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/Comment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/EventManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/Post.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/Printer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/Speak.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/Tag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/WaterballCommunity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/chanel/Broadcast.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/chanel/ChatRoom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/chanel/Forum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/Bot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/BotEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/BotEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/BotEventName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/BotEventResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/BotFacade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/Community.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/Id.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/StateResponseHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/actions/DefaultConversationEntryAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/actions/InteractingEntryAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/actions/QuestioningEntryAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/actions/QuestioningToThanksForJoiningAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/actions/RecordEntryAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/actions/RecordingExitAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/actions/TanksForJoiningEntryAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/actions/ThanksForJoiningToQuestioningAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/guards/DefaultConversationUserMaxLimit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/guards/InteractingUserMinLimit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/guards/KnowledgeKingToNormalCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/guards/NormalToKnowledgeKingWithCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/guards/NormalToRecordWithCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/guards/QuestioningToThanksForJoining.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/guards/RecordToNormalCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/guards/ThanksForJoiningToQuestioningCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/stateResponseHandlers/MessageWithConversationHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/stateResponseHandlers/MessageWithInteractingHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/stateResponseHandlers/MessageWithQuestioningHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/stateResponseHandlers/PostWithConversationHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/stateResponseHandlers/PostWithInteractingHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/stateResponseHandlers/TimeElapsedWithQuestioningHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/states/DefaultConversation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/states/Interacting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/states/KnowledgeKing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/states/Normal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/states/Questioning.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/states/Record.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/states/Recording.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/states/ThanksForJoining.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/states/Waiting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/FiniteStateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/FiniteStateMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/Guard.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/Guard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/State.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/Transition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/Trigger.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/fsm/Trigger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/util/JsonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/util/JsonUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/java/com/ted/TestCaseRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/java/com/ted/TestCaseRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Broadcast_MultipleSpeakers.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Broadcast_MultipleSpeakers.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Broadcast_Record_ActiveSpeaker.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Broadcast_Record_ActiveSpeaker.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Broadcast_Record_StopBroadcasting.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Broadcast_Record_StopBroadcasting.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Broadcast_SingleUser.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Broadcast_SingleUser.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Default_InitialMessageResponse.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Default_InitialMessageResponse.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Default_LoginSwitchToInteractive.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Default_LoginSwitchToInteractive.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Default_MessageCycle.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Default_MessageCycle.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Default_MultipleUsers.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Default_MultipleUsers.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Default_MultipleUsers.out" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Default_MultipleUsers.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Default_UserTagsBot.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Default_UserTagsBot.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Interactive_InitialMessageResponse.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Interactive_InitialMessageResponse.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Interactive_LogoutSwitchToDefault.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Interactive_LogoutSwitchToDefault.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Interactive_MessageCycle.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/ChatBot_Interactive_MessageCycle.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Command_King_InvalidMember.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Command_King_InvalidMember.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Command_King_QuotaLimit.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Command_King_QuotaLimit.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Command_King_ValidAdmin.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Command_King_ValidAdmin.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Command_Record_QuotaLimit.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Command_Record_QuotaLimit.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Command_Record_StopByNonRecorder.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Command_Record_StopByNonRecorder.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Command_Record_StopByRecorder.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Command_Record_StopByRecorder.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Forum_BotComment_10Users.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Forum_BotComment_10Users.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Forum_BotComment_DefaultState.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Forum_BotComment_DefaultState.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Forum_BotComment_InteractiveState.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/Forum_BotComment_InteractiveState.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_CorrectAnswer_FirstUser.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_CorrectAnswer_FirstUser.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_CorrectAnswer_MultipleUsers.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_CorrectAnswer_MultipleUsers.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_IncorrectAnswer.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_IncorrectAnswer.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_PlayAgain.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_PlayAgain.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_StartByAdmin.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_StartByAdmin.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_StartByMember.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_StartByMember.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_TieGame.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_TieGame.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_TimeOut.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_TimeOut.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_WinnerAnnouncement.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/KnowledgeKing_WinnerAnnouncement.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/interaction.chit-chat.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/interaction.chit-chat.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/knowledge-king.normal-play.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/knowledge-king.normal-play.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/knowledge-king.stop.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/knowledge-king.stop.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/knowledge-king.timeout.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/knowledge-king.timeout.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/normal.chit-chat.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/normal.chit-chat.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/quota.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/quota.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/recording.normal.in" beforeDir="false" afterPath="$PROJECT_DIR$/GYM8-FSM/src/test/resources/testcases/recording.normal.in" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,12 +161,12 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.TestCaseRunner">
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
-      <module name="GYM8-FSM" />
+      <module name="GYM6C-logger" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ted.app.*" />
+          <option name="PATTERN" value="com.ted.app.bot.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -96,10 +176,10 @@
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
-      <module name="GYM6C-logger" />
+      <module name="GYM8-FSM" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ted.app.bot.*" />
+          <option name="PATTERN" value="com.ted.app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -196,7 +276,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main (1)" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.TestCaseRunner" />
       <item itemvalue="Application.com.ted.Main" />
@@ -206,8 +285,6 @@
       <list>
         <item itemvalue="Application.TestCaseRunner" />
         <item itemvalue="Application.com.ted.Main" />
-        <item itemvalue="Application.Main (1)" />
-        <item itemvalue="Application.Main (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -234,20 +311,6 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/app/chanel/Forum.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="211" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GYM8-FSM/src/main/java/com/ted/bot/Bot.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="216" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.ted.app.Logger" memberName="name" />

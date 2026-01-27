@@ -1,44 +1,44 @@
 package com.ted.fsm;
 
-public class Transition {
 
-    private Action action;
+public class Transition<EN> {
 
-    private State from;
+    private Action<EN> action;
 
-    private Guard guard;
+    private AbstractState<EN> from;
 
-    private State to;
+    private Guard<EN> guard;
 
-    private Trigger trigger;
+    private AbstractState<EN> to;
 
+    private Trigger<EN> trigger;
 
-    public Transition(Action action, Event event, State from, Guard guard, State to) {
+    public Transition(Action<EN> action, Event<EN> event, AbstractState<EN> from, Guard<EN> guard, AbstractState<EN> to) {
         this.action = action;
-        this.trigger = new Trigger(event);
+        this.trigger = new Trigger<>(event);
         this.from = from;
         this.guard = guard;
         this.to = to;
     }
 
-    public Action getToEnterAction(){
+    public Action<EN> getToEnterAction() {
         return to.getEnter();
     }
 
-    public boolean match(Context context){
+    public boolean match(Context<EN> context) {
 
-        State state = context.getState();
-        Event event = context.getEvent();
+        AbstractState<EN> state = context.getState();
+        Event<EN> event = context.getEvent();
 
-        if(!from.match(state)){
+        if (!from.match(state)) {
             return false;
         }
 
-        if(!trigger.match(event)){
+        if (!trigger.match(event)) {
             return false;
         }
 
-        if(guard != null && !guard.evaluate(context)){
+        if (guard != null && !guard.evaluate(context)) {
             return false;
         }
 
@@ -47,43 +47,43 @@ public class Transition {
 
     //==================================
 
-    public Action getAction() {
+    public Action<EN> getAction() {
         return action;
     }
 
-    public void setAction(Action action) {
+    public void setAction(Action<EN> action) {
         this.action = action;
     }
 
-    public State getFrom() {
+    public AbstractState<EN> getFrom() {
         return from;
     }
 
-    public void setFrom(State from) {
+    public void setFrom(AbstractState<EN> from) {
         this.from = from;
     }
 
-    public Guard getGuard() {
+    public Guard<EN> getGuard() {
         return guard;
     }
 
-    public void setGuard(Guard guard) {
+    public void setGuard(Guard<EN> guard) {
         this.guard = guard;
     }
 
-    public State getTo() {
+    public AbstractState<EN> getTo() {
         return to;
     }
 
-    public void setTo(State to) {
+    public void setTo(AbstractState<EN> to) {
         this.to = to;
     }
 
-    public Trigger getTrigger() {
+    public Trigger<EN> getTrigger() {
         return trigger;
     }
 
-    public void setTrigger(Trigger trigger) {
+    public void setTrigger(Trigger<EN> trigger) {
         this.trigger = trigger;
     }
 }

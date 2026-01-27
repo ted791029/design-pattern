@@ -1,14 +1,14 @@
 package com.ted.fsm;
 
-public class Trigger {
+public class Trigger<EN> {
 
-    private Event event;
+    private Event<EN> event;
 
-    public Trigger(Event event) {
+    public Trigger(Event<EN> event) {
         this.event = event;
     }
 
-    public boolean match(Event event){
+    public boolean match(Event<EN> event) {
         return this.event.match(event);
     }
 }

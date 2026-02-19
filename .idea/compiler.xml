@@ -16,6 +16,7 @@
         <module name="GYM6A-friends-relationship-analyzer" />
         <module name="GYM6C-logger" />
         <module name="GYM5C-map-game" />
+        <module name="GYM9A-computation-model" />
         <module name="GYM7" />
         <module name="GYM8-FSM" />
         <module name="GYM2-matchmaking-system" />

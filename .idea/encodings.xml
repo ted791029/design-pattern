@@ -34,7 +34,11 @@
     <file url="file://$PROJECT_DIR$/GYM7/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/GYM8-FSM/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/GYM8-FSM/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/GYM9A-computation-model/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/GYM9A-computation-model/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GYM9B-ascii-ui-theme/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GYM9B-ascii-ui-theme/src/main/resources" charset="UTF-8" />
   </component>
 </project>

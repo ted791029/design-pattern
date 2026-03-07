@@ -5,8 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0c32b1f-3c62-4f09-8352-7c14ec070394" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GYM9A-computation-model/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9A-computation-model/src/main/java/com/ted/app/Matrix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/factoryProductionScheduling/Factory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/factoryProductionScheduling/Machine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/factoryProductionScheduling/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/factoryProductionScheduling/Worker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/geneticAlgorithm/FitnessType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/geneticAlgorithm/Genes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/geneticAlgorithm/GeneticAlgorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/geneticAlgorithm/Individual.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/geneticAlgorithm/Population.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/geneticAlgorithm/TerminationConditionStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/shoppingRecommendation/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/shoppingRecommendation/Preference.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/shoppingRecommendation/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/shoppingRecommendation/ShoppingBag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/shoppingRecommendation/Type.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/util/RandomUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9B-ascii-ui-theme/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -20,9 +36,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -63,7 +79,7 @@
       <recent name="D:\sourcetree\design-pattern\GYM6-prescriber-system\src\main\java\com\ted\app\file\database" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="Application.com.ted.app.factoryProductionScheduling.Main">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
       <module name="GYM9A-computation-model" />
@@ -78,11 +94,11 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
-      <module name="GYM6C-logger" />
+      <option name="MAIN_CLASS_NAME" value="com.ted.app.shoppingRecommendation.Main" />
+      <module name="GYM9-genetic-algorithm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ted.app.bot.*" />
+          <option name="PATTERN" value="com.ted.app.shoppingRecommendation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -181,25 +197,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest.testBattleScenario" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="GYM5-rpg" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <option name="METHOD_NAME" value="testBattleScenario" />
-      <option name="TEST_OBJECT" value="method" />
+    <configuration name="com.ted.app.factoryProductionScheduling.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ted.app.factoryProductionScheduling.Main" />
+      <module name="GYM9-genetic-algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ted.app.factoryProductionScheduling.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.com.ted.app.factoryProductionScheduling.Main" />
       <item itemvalue="Application.Main (1)" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.TestCaseRunner" />
       <item itemvalue="Application.com.ted.Main" />
-      <item itemvalue="JUnit.MainTest.testBattleScenario" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.com.ted.app.factoryProductionScheduling.Main" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.TestCaseRunner" />
         <item itemvalue="Application.com.ted.Main" />

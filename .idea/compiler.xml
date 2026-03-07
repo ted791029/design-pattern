@@ -13,6 +13,8 @@
         <module name="GYM6-prescriber-system" />
         <module name="GYM5A-youtube" />
         <module name="GYM5-rpg" />
+        <module name="GYM9-genetic-algorithm" />
+        <module name="GYM9B-ascii-ui-theme" />
         <module name="GYM6A-friends-relationship-analyzer" />
         <module name="GYM6C-logger" />
         <module name="GYM5C-map-game" />

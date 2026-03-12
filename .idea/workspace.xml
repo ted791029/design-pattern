@@ -5,27 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0c32b1f-3c62-4f09-8352-7c14ec070394" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/factoryProductionScheduling/Factory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/factoryProductionScheduling/Machine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/factoryProductionScheduling/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/factoryProductionScheduling/Worker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/geneticAlgorithm/FitnessType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/geneticAlgorithm/Genes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/geneticAlgorithm/GeneticAlgorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/geneticAlgorithm/Individual.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/geneticAlgorithm/Population.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/geneticAlgorithm/TerminationConditionStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/shoppingRecommendation/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/shoppingRecommendation/Preference.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/shoppingRecommendation/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/shoppingRecommendation/ShoppingBag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/shoppingRecommendation/Type.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9-genetic-algorithm/src/main/java/com/ted/app/util/RandomUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GYM9B-ascii-ui-theme/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9B-ascii-ui-theme/src/main/java/com/ted/app/UICore/Theme.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GYM9B-ascii-ui-theme/src/main/java/com/ted/app/UICore/Widget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,9 +17,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -79,7 +60,7 @@
       <recent name="D:\sourcetree\design-pattern\GYM6-prescriber-system\src\main\java\com\ted\app\file\database" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.com.ted.app.factoryProductionScheduling.Main">
+  <component name="RunManager" selected="Application.com.ted.app.Main">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
       <module name="GYM9A-computation-model" />
@@ -184,12 +165,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.ted.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ted.Main" />
-      <module name="GYM8-FSM" />
+    <configuration name="com.ted.app.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ted.app.Main" />
+      <module name="GYM9B-ascii-ui-theme" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ted.*" />
+          <option name="PATTERN" value="com.ted.app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -211,19 +192,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.com.ted.app.Main" />
       <item itemvalue="Application.com.ted.app.factoryProductionScheduling.Main" />
       <item itemvalue="Application.Main (1)" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.TestCaseRunner" />
-      <item itemvalue="Application.com.ted.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.com.ted.app.Main" />
         <item itemvalue="Application.com.ted.app.factoryProductionScheduling.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.TestCaseRunner" />
-        <item itemvalue="Application.com.ted.Main" />
       </list>
     </recent_temporary>
   </component>

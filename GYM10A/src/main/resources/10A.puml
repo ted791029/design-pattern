@@ -1,0 +1,489 @@
+@startuml
+package core {
+class Object 
+class AppContext 
+interface DictionaryQueryTechnique {
+  +queryWord() : Word
+}
+class VocabularyLearningSystem {
+  +start() : void
+}
+class AppContextKey <<enum>>{
+  -ADDED_WORD : int
+  -ACTIVE_QUIZ_SESSION : int
+  -LATEST_NUM_OF_QUESTIONS : int
+  -LATEST_POINT : int
+  -PENDING_WORD_FROM_SEARCH : int
+  -QUESTION_INDEX : int
+  -QUESTION_POINT : int
+  -QUESTION_RESULT_MESSAGE : int
+  -QUESTION_SHOWING_RESULT : int
+}
+interface SceneFatcory {
+  {abstract} +create(context:AppContext) : Scene
+}
+package factories {
+class HomeSceneFactory {
+  +create(context:AppContext) : Scene
+}
+class ExitDefaultMenuOptionFactory {
+  +create(context:AppContext) : MenuOption
+}
+class PreviousPageDefaultMenuOptionFactory {
+  +create(context:AppContext) : MenuOption
+}
+}
+
+class SceneManager {
+  -isRunning : boolean
+  -sceneStack : String [*]
+  +buildBreadcrumbPath() : String
+  +current() : Scene
+  +dispose() : void
+  +goBack() : void
+  +link() : void
+  +push(sceneId:SceneId) : void
+  +register(sceneId:SceneId, factory:SceneFatcory) : void
+  +registerDefaultMenuOption(sceneId:SceneId, factory:DefaultMenuOptionFactory) : void
+  +reslove(sceneId:String) : Scene
+  +resolveGraphChildren(sceneId:SceneId) : Scene
+}
+interface DefaultMenuOptionFactory {
+  {abstract} +create(context:AppContext) : Scene
+}
+class WordRepository {
+  +addWord(word:Word) : boolean
+  +deleteWord(name:String) : boolean
+  +listWords() : Word
+  +listWordNames() : String
+}
+class Word {
+  -description : String
+  -name : String
+}
+class Definition {
+  -explanation : String
+  -PoS : PartOfSpeech
+}
+class PartOfSpeech {
+  -abbr : String
+  -fullName : String
+}
+package scenes {
+class HomeScene {
+  -breadcrumbs.currentPath : String = '/'
+  -distance : int = 0
+  -lifecycleType : LifecycleType = NEVER_CLEAR
+  #renderMessenger() : void
+  #renderPrompt() : void
+}
+}
+
+class Breadcrumbs {
+  -currentPath : String
+  -prevPaths : String
+  +displayText() : String
+}
+package commands {
+class PreviousPage {
+  -optionCustomKey : String = "/B"
+  -optionLabel : String = "Previous Page"
+  +action(manager:SceneManager) : void
+}
+class Exit {
+  -optionCustomKey : String = "/ESC"
+  -optionLabel : String = "ESC"
+  +action(manager:SceneManager) : void
+}
+}
+
+class Message {
+  -text : String
+}
+abstract Scene {
+  -depth : int
+  -distance : int
+  -id : SceneId
+  -visible : boolean
+  +action(manager:SceneManager) : void
+  +clearState() : void
+  +display() : void
+  {abstract} +getLabel() : String
+  +handleInput(input:String, manager:SceneManager) : void
+  +isComposite() : boolean
+  +render() : void
+  {abstract} #contributeMenuOptions(bulder:MenuBuilder) : void
+  #hiddenDefaultMenuOptions() : void
+  #handleTextInput() : void
+  #renderAction() : void
+  {abstract} #renderMessenger() : void
+  #renderMenu() : void
+  {abstract} #renderPrompt() : void
+  -handleOptionInput() : boolean
+  -renderBreadcrumbs() : void
+}
+class Messenger {
+  +add(message:Message) : void
+  +displayText() : String
+  +isEmpty() : boolean
+  +size() : void
+}
+class Menu {
+  +displayLabel() : String
+  +isEmpty() : boolean
+  +resolveOption() : int
+  +size() : void
+  -resolveByCustomKey() : MenuOption
+  -resolveByGeneratedIndex() : MenuOption
+}
+interface MenuOption {
+  {abstract} +action(manager:SceneManager) : void
+  {abstract} +getOptionCustomKey() : String
+  {abstract} +getOptionLabel() : String
+  {abstract} +isComposite() : boolean
+  {abstract} +isVisible() : boolean
+  {abstract} +setVisible(visible:boolean) : void
+}
+abstract Command {
+  -optionCustomKey : String
+  -optionLabel : String
+  -visible : boolean
+  {abstract} +action(context:AppContext) : void
+  +isComposite() : boolean
+}
+class Prompt {
+  -text : String
+}
+class SceneId <<enum>>{
+  -ADD_WORDS : int
+  -DELETE_WORDS : int
+  -HOME : int
+  -MANAGE : int
+  -QUESTION : int
+  -REVIEW : int
+  -SEARCH : int
+  -SEARCH_ADD_CONFIRM : int
+}
+class LifecycleType <<enum>>{
+  -NEVER_CLEAR : int
+  -CLEAR_ON_LEAVE : int
+  -DISTANCE_BASED : int
+}
+class MenuBuilder {
+  +add(option:MenuOption) : MenuBuilder
+  +build() : Menu
+}
+}
+
+package ManageWords {
+package commands {
+class AddSearchedWordOption {
+  -optionCustomKey : String = none
+  -optionLabel : String = "Okay, I got it"
+  +action(AppContext context:int) : void
+}
+class ConfirmSearchAddOption {
+  -optionCustomKey : String = none
+  -optionLabel : String = "Okay, I got it"
+  +action(AppContext context:int) : void
+}
+}
+
+package factories {
+class ManageWordsSceneFactory {
+  +create(context:AppContext) : Scene
+}
+class SearchWordsSceneFactory {
+  +create(context:AppContext) : Scene
+}
+class AddWordsSceneFactory {
+  +create(context:AppContext) : Scene
+}
+class DeleteWordsSceneFactory {
+  +create(context:AppContext) : Scene
+}
+class SearchAddConfirmSceneFactory {
+  +create(context:AppContext) : Scene
+}
+}
+
+package scenes {
+class ManageWordsScene {
+  -breadcrumbs.currentPath : String = 'Manage words'
+  -distance : int = 0
+  -lifecycleType : LifecycleType = NEVER_CLEAR
+  #renderMessenger() : void
+  #renderPrompt() : void
+}
+class SearchWordsScene {
+  -breadcrumbs.currentPath : String = 'Search words'
+  -distance : int = 0
+  -lastFoundWord : Word
+  -lifecycleType : LifecycleType = CLEAR_ON_LEAVE
+  -notFoundName : String
+  +clearState() : void
+  #handleTextInput(input:String) : void
+  #renderAction() : void
+  #renderMessenger() : void
+  #contributeMenuOptions() : void
+  #renderPrompt() : void
+}
+class AddWordsScene {
+  -breadcrumbs.currentPath : String = 'Add new words'
+  -distance : int = 2
+  -lifecycleType : LifecycleType = DISTANCE_BASED
+  -wordsAddedLine : String
+  -wordsNotFoundLine : String
+  +clearState() : void
+  #handleTextInput(input:String) : void
+  #renderMessenger() : void
+  #renderPrompt() : void
+}
+class DeleteWordsScene {
+  -breadcrumbs : String = '/ Manage words / Delete words'
+  -distance : int = 2
+  -lifecycleType : LifecycleType = DISTANCE_BASED
+  -wordsDeletedLine : String
+  -wordsNotFoundLine : String
+  +clearState() : void
+  #handleTextInput(input:String) : void
+  #renderMessenger() : void
+  #renderPrompt() : void
+}
+class SearchAddConfirmScene {
+  -added : boolean
+  -breadcrumbs : String = '/ Review words / Question'
+  -lifecycleType : LifecycleType = CLEAR_ON_LEAVE
+  -distance : int = 0
+  +clearState() : void
+  #contributeMenuOptions(bulder:MenuBuilder) : void
+  #handleTextInput(input:String) : void
+  #hiddenDefaultMenuOptions() : DefaultMenuOptionKey
+  #renderAction() : void
+  #renderMessenger() : void
+  #renderPrompt() : void
+}
+}
+
+class LocalJsonDictionaryAdapter {
+  +queryWord() : Word
+}
+class LocalJsonDictionary {
+  +queryWord() : Word
+}
+}
+
+package ReviewWords {
+package scenes {
+class ReviewWordsScene {
+  -breadcrumbs : String = '/ Review words'
+  -distance : int = 0
+  -lifecycleType : LifecycleType = CLEAR_ON_LEAVE
+  #renderMessenger(context:AppContext) : void
+  #renderMenu(context:AppContext) : void
+  #renderPrompt(context:AppContext) : void
+}
+class QuestionScene {
+  -breadcrumbs : String = '/ Review words / Question'
+  -distance : int = 3
+  -lifecycleType : LifecycleType = DISTANCE_BASED
+  +clearState() : void
+  #handleTextInput(input:String) : void
+  #hiddenDefaultMenuOptions() : DefaultMenuOptionKey
+  #renderMessenger() : void
+  #renderPrompt() : void
+}
+}
+
+package commands {
+class ContinueQuestionOption {
+  -optionCustomKey : String = "/*"
+  -optionLabel : String = "Continue"
+  +action(AppContext context:int) : void
+}
+class SkipReviewOption {
+  -optionCustomKey : String = "N"
+  -optionLabel : String = "No, not today."
+  +action(AppContext context:int) : void
+}
+class StartReviewOption {
+  -optionCustomKey : String = "Y"
+  -optionLabel : String = "Let's do it."
+  +action(AppContext context:int) : void
+}
+class EndQuestionOption {
+  -optionCustomKey : String = "/*"
+  -optionLabel : String = "End"
+  +action(AppContext context:int) : void
+}
+}
+
+package factories {
+class ReviewWordsSceneFactory {
+  +create(context:AppContext) : Scene
+}
+class QuestionSceneFactory {
+  +create(context:AppContext) : Scene
+}
+}
+
+class QuizSession {
+  +create() : Question
+}
+class Question {
+  -answer : String
+  -definitionHint : String
+  -wordBlank : String
+}
+}
+
+Scene "1" --> "1" Breadcrumbs
+Scene "1" --> "1" Messenger
+Scene --> "1" Menu
+Scene --> "1" Prompt
+Scene "1" *--> "1" LifecycleType
+Scene <|-- ManageWordsScene
+Scene <|-- SearchWordsScene
+Scene <|-- AddWordsScene
+Scene <|-- DeleteWordsScene
+Scene <|-- ReviewWordsScene
+WordRepository "0..1" -- "0..*" Word
+Word "1" -- "1..*" Definition
+Definition "1" -- "1" PartOfSpeech
+Scene <|-- QuestionScene
+VocabularyLearningSystem "1" -- "1" WordRepository
+Scene <|-- SearchAddConfirmScene
+VocabularyLearningSystem "1" --> "1" SceneManager
+Messenger "1" --> "~*" Message
+SceneManager "1" --> "1..*" Scene : activeScenes >
+Scene <|-- HomeScene
+LocalJsonDictionaryAdapter "1" --> "1" LocalJsonDictionary
+Menu "1" --> "1..*" MenuOption
+Scene ..|> MenuOption
+Command ..|> MenuOption
+Command <|-- PreviousPage
+Command <|-- Exit
+AppContext "1" --> "1" WordRepository
+AppContext "1" --> "1" SceneManager
+AppContext "1" --> "1" DictionaryQueryTechnique
+LocalJsonDictionaryAdapter ..|> DictionaryQueryTechnique
+AppContext --> Object : tempData >
+AppContext "1" *--> "1" AppContextKey
+SceneManager "1" --> "1" AppContext
+Command <|-- AddSearchedWordOption
+Command <|-- ConfirmSearchAddOption
+Command <|-- ContinueQuestionOption
+Command <|-- SkipReviewOption
+Command <|-- StartReviewOption
+SceneManager "1" --> "1" SceneFatcory : registeredSceneFactories >
+ManageWordsSceneFactory ..|> SceneFatcory
+SearchWordsSceneFactory ..|> SceneFatcory
+AddWordsSceneFactory ..|> SceneFatcory
+DeleteWordsSceneFactory ..|> SceneFatcory
+SearchAddConfirmSceneFactory ..|> SceneFatcory
+HomeSceneFactory ..|> SceneFatcory
+ReviewWordsSceneFactory ..|> SceneFatcory
+QuestionSceneFactory ..|> SceneFatcory
+Scene "1" *--> "1" SceneId
+SceneManager "1" --> "1" DefaultMenuOptionFactory : registeredDefaultMenuOptionFactories >
+ExitDefaultMenuOptionFactory ..|> DefaultMenuOptionFactory
+PreviousPageDefaultMenuOptionFactory ..|> DefaultMenuOptionFactory
+MenuBuilder "~*" --> "~*" MenuOption
+Scene ..> MenuBuilder : create
+SceneManager "1" --> "~*" SceneId : sceneGraph >
+Command <|-- EndQuestionOption
+QuizSession --> Question
+StartReviewOption ..> QuizSession
+
+note right of Definition : 名詞 Noun (n.)\n動詞 Verb (v.)\n形容詞 Adjective (a.)\n副詞 Adverb (adv.)
+note right of HomeScene : return new Prompt("What are you looking for?")
+note right of SearchWordsScene : AppContext context = getContext()\nWord word = context.dictionaryQueryTechnique.queryWord(name)\nif (word == null) {\n    notFoundName = name\n} else {\n    lastFoundWord = word\n    notFoundName = null\n}
+note right of AddWordsScene : names = parseWordNames(input);\nif (names.isEmpty()) {\n    return\n}\n\nadded = []\nnotFound = []\n\nfor (String name in names) {\n    Word queried = context.dictionaryQueryTechnique.queryWord(name)\n    if (queried == null) {\n        notFound.add(name)\n    } else {\n        boolean inserted = context.repository.addWord(queried);\n        if (inserted) {\n            added.add(queried.name)\n        }\n    }\n}\n\nwordsAddedLine = added.isEmpty() ? null : "Words successfully added: " + String.join(", ", added)\nwordsNotFoundLine = notFound.isEmpty() ? null : "Words not found: " + String.join(", ", notFound)
+note right of DeleteWordsScene : return new Prompt("Please input word's names (separated by commas) that you want to delete:")
+note right of DeleteWordsScene : names = parseWordNames(input)\nif (names.isEmpty()) {\n    return\n}\n\ndeleted = []\nnotFound = []\nfor (String name in names) {\n    boolean removed = context.repository.deleteWord(name)\n    if (removed) {\n        deleted.add(name)\n    } else {\n        notFound.add(name)\n    }\n}\n\nwordsDeletedLine = deleted.isEmpty() ? null : "Words successfully deleted: " + String.join(", ", deleted)\nwordsNotFoundLine = notFound.isEmpty() ? null : "Words not found: " + String.join(", ", notFound)
+note right of ReviewWordsScene : return new Menu(\n    new StartReviewOption(), \n    new SkipReviewOption(), \n    new Exit()\n)
+note right of WordRepository : if (key.isEmpty()) {\n    return false\n}\nif (words.containsKey(key)) {\n    return false\n}\nwords.put(key, word)\nreturn true
+note right of WordRepository : if (key.isEmpty()) {\n    return false\n}\n\nreturn words.remove(key) != null
+note right of WordRepository : names = []\n\nfor (Word word in words.values()) {\n    names.add(word.name)\n}\n\nreturn names
+note right of WordRepository : return words.values()
+note right of LocalJsonDictionary : if (name == null) {\n    return null\n}\n\ndata = ReadDictionaryData(name)\n\nfor (entry in data) {\n    key = entry.key\n    detail = entry.value\n\n    if (!key.equalsIgnoreCase(query)) {\n        continue\n    }\n\n    description = detail.getOrDefault("description", "")\n\n    defs = ConvertToMap(detail["definitions"])\n\n    definitions = new List()\n\n    for (def in defs) {\n        definition = new Definition(def.key, def.value)\n        definitions.add(definition)\n    }\n\n    return new Word(key, description, definitions)\n}\n\nreturn null
+note right of SearchAddConfirmScene : if (!added && context.getTempData(AppContextKey.PENDING_WORD_FROM_SEARCH) != null) {\n    context.getWordRepository().addWord((Word) context.getTempData(AppContextKey.PENDING_WORD_FROM_SEARCH))\n    added = true\n}
+note right of VocabularyLearningSystem : SceneManager.push(rootSceneId)\nwhile (SceneManager.running) {\n        Scene current = SceneManager.current()\n        if (current == null) {\n                break\n        }\n\n        current.render(context)\n        if (!context.scanner.hasNextLine()) {\n                break\n        }\n\n        String input = context.scanner.nextLine()\n        String normalized = CliText.normalizeCommand(input)\n        if ("/esc".equals(normalized)) {\n                SceneManager.running = false\n                break\n        }\n        if (("/b".equals(normalized) || "\\b".equals(normalized))) {\n                SceneManager.goBack()\n                continue\n        }\n        current.handleInput(input == null ? "" : input.trim(), context, this)\n}
+note right of SceneManager : if (sceneStack.isEmpty()) {\n        return null\n}\nreturn reslove(sceneStack.peek())
+note right of SceneManager : int currentDepth = sceneStack.size()\nSceneId currentSceneId = sceneStack.peek()\nSet<SceneId> toRemove = []\nfor (Scene scene : allScenes) {\n    if (shouldClearOnLeave(scene, currentSceneId)) {\n        scene.clearState()\n        if (!sceneStack.contains(scene.getId())) {\n            toRemove.add(scene.getId())\n        }\n        continue\n    }\n\n    if (shouldRemoveActiveScene(scene, currentDepth)) {\n        scene.clearState()\n        toRemove.add(scene.getId())\n    }\n}\n\ntoRemove.removeForEach()
+note right of SceneManager : if (sceneStack.size() <= 1) {\n        return\n}\nScene leaving = sceneStack.pop()\ndispose()
+note right of SceneManager : Scene next = reslove(sceneId)\nnext.setDepth(sceneStack.size() + 1)\nsceneStack.push(sceneId)\ndispose()
+note right of SceneManager : registeredSceneFactories.put(sceneId, factory);
+note right of LocalJsonDictionaryAdapter : return LocalJsonDictionary.queryWord()
+note right of Scene : print(Breadcrumbs.displayText())\nprint("---")\nif (Messenger != null && !Messenger.isEmpty()) {\n    print(Messenger.displayText())\n    print("---")\n}\nif (Menu != null && !Menu.isEmpty()) {\n    print(Menu.displayLabel())\n    print("---")\n}\nSystem.out.println("---");\nSystem.out.println(Prompt.text);
+note right of Command : return false
+note right of Scene : return ture
+note right of PreviousPage : SceneManager.goBack()
+note right of Exit : SceneManager.isRunning = true
+note right of Breadcrumbs : return prevPaths + currentPath
+note right of Messenger : text = ""\nfor (Message in Messages) {\n    text += Message.text + "\n"\n}\nreturn text
+note right of Messenger : size() == 0
+note right of Messenger : Messages.size()
+note right of Menu : text = ""\nfor (MenuOption in MenuOptions) {\n    text += MenuOption.getLabel() + "\n"\n}\nreturn text
+note right of Menu : size() == 0
+note right of Menu : String command = normalize(input)\nif (command.isEmpty()) {\n    return null\n}\n\nMenuOption option = resolveByCustomKey(command);\nif (option != null) {\n    return option\n}\n\nreturn resolveByGeneratedIndex(command)
+note right of SceneManager : String path\nfor (int i = sceneStack.size() - 1 i >= 0 i--) {\n    Scene scene = reslove(sceneStack.get(i))\n    appendBreadcrumbLabel(path, scene.getBreadcrumbLabel())\n}\nreturn formatBreadcrumbPath(path, current)
+note right of AddSearchedWordOption : manager = context.getManager()\nWord queried  = context.getTempData(AppContextKey.ADDED_WORD))\ncontext.getWordRepository().addWord(queried)\nmanager.push("SEARCH_ADD_CONFIRM")
+note right of ConfirmSearchAddOption : manager = context.getManager()\nmanager.goBack()
+note right of SkipReviewOption : manager = context.getManager()\nmanager.goBack()
+note right of StartReviewOption : SceneManager manager = context.getManager()\nif (context.getWordRepository().size() > 0) {\n    context.putTempData(AppContextKey.ACTIVE_QUIZ_SESSION,\n            QuizSession.create(\n                context.getWordRepository().listWords(),\n                context.getRandom()))\n    context.putTempData(AppContextKey.QUESTION_POINT, 0)\n    context.putTempData(AppContextKey.QUESTION_INDEX, 0)\n    context.putTempData(AppContextKey.QUESTION_RESULT_MESSAGE, null)\n    context.putTempData(AppContextKey.QUESTION_SHOWING_RESULT, false)\n    context.putTempData(AppContextKey.QUESTION_SHOWING_EXAM_OVER, false)\n    manager.push(SceneId.QUESTION)\n}
+note right of ManageWordsSceneFactory : new ManageWordsScene(context)
+note right of SearchWordsSceneFactory : new SearchWordsScene(context)
+note right of AddWordsSceneFactory : new AddWordsScene(context)
+note right of DeleteWordsSceneFactory : new DeleteWordsScene(context)
+note right of SearchAddConfirmSceneFactory : new SearchAddConfirmScene(context)
+note right of HomeSceneFactory : return new HomeScene(context)
+note right of ReviewWordsSceneFactory : new ReviewWordsScene(context)
+note right of QuestionSceneFactory : new QuestionScene(context)
+note right of Menu : for (MenuOption option in options) {\n    String key = option.getOptionCustomKey()\n    if (!key.isEmpty() && key.equals(command)) {\n        return option\n    }\n}\nreturn null
+note right of Menu : int current = 0\nfor (MenuOption option in options) {\n    String key = option.getOptionCustomKey()\n    if (key == null || key.isBlank()) {\n        current++\n        if (current == index) {\n            return option\n        }\n    }\n}\nreturn null
+note right of SceneManager : SceneFactory factory = registeredSceneFactories.get(sceneId)\nif (factory == null) {\n        throw Exception("No registered scene: " + sceneId)\n}\n\nScene next = activeScenes.get(sceneId)\nif (next == null) {\n        next = factory.create(context)\n        activeScenes.put(sceneId, next)\n}\nreturn next
+note right of Scene : if (input.isEmpty()) {\n    return\n}\nboolean handled = handleOptionInput(input)\nif (handled) {\n    return\n}\nhandleTextInput(input)
+note right of Scene : AppContext context = getContext()\nMenu menu = getMenu()\nMenuOption option = menu.resolveOption(input)\nif (option != null) {\n    option.action(context)\n    return true\n}\nreturn false
+note right of Scene : AppContext context = getContext()\nrenderAction(context)\nsetBreadcrumbs(renderBreadcrumbs(context))\nsetMessenger(renderMessenger(context))\nsetMenu(renderMenu(context))\nsetPrompt(renderPrompt(context))\ndisplay()
+note right of Scene : SceneManager manager = context.getManager()\nBreadcrumbs breadcrumbs = new Breadcrumbs()\nbreadcrumbs.setCurrentPath(\n    manager.buildBreadcrumbPath(this)\n)\nreturn breadcrumbs
+note right of HomeScene : return new Messenger(\n    new Message("Hello, welcome to vocabulary learning system.")\n)
+note right of ManageWordsScene : return  new Messenger(\n    new Message("Wanna learn a new word?")\n)
+note right of ManageWordsScene : return new Prompt("Hello, please select a place to go:")
+note right of SearchWordsScene : if (lastFoundWord != null) {\n    context.putTempData(AppContextKey.ADDED_WORD, lastFoundWord);\n}
+note right of SearchWordsScene : Messenger messenger = new Messenger()\nif (lastFoundWord == null) {\n    if (notFoundName == null) {\n        messenger.add(new Message("Genius is one percent inspiration and ninety-nine percent perspiration."))\n    } else {\n        messenger.add(new Message("Cannot find the word '" + notFoundName + "'."))\n    }\n}else{\n    messenger.add(new Message("Word: " + lastFoundWord.getName()))\n    messenger.add(new Message("Description: " + trimTrailingPeriod(lastFoundWord.getDescription())))\n    for (Definition definition in lastFoundWord.getDefinitions()) {\n        messenger.add(new Message(formatPos(definition) + " - " + definition.getExplanation()))\n    }\n}\nreturn messenger
+note right of SearchWordsScene : String wordName = foundWord ? lastFoundWord.getName() : "(unknown)"\nMenuOption option = foundWord ? new AddSearchedWordOption(wordName) : \n                    new AddSearchedWordOption(wordName, false)\nbuilder.add(option)
+note right of SearchWordsScene : Prompt prompt\nif (lastFoundWord == null) {\n    prompt = new Prompt("Please input a word's name: ")\n}else{\n    prompt = new Prompt("Command: ")\n}\nreturn prompt
+note right of AddWordsScene : AddWordsScene.messenger = new Messenger(\n    new Message(formatCurrentWords(context.repository.listWordNames()))\n)\nif (wordsAddedLine != null) {\n    messenger.add(new Message(wordsAddedLine))\n}\nif (wordsNotFoundLine != null) {\n    messenger.add(new Message(wordsNotFoundLine))\n}\nreturn messenger
+note right of AddWordsScene : return new Prompt("Please input word's names (separated by commas) that you want to add:")
+note right of DeleteWordsScene : return new Messenger(\n    new Message(formatCurrentWords(context.repository.listWordNames()))\n)\nif (wordsDeletedLine != null) {\n    messenger.add(wordsDeletedLine)\n}\nif (wordsNotFoundLine != null) {\n    messenger.add(wordsNotFoundLine)\n}
+note right of SearchAddConfirmScene : String name = context.getTempData(AppContextKey.ADDED_WORD) == \n    null ? "(unknown)" : ((Word) context.getTempData(AppContextKey.ADDED_WORD)).getName()\nreturn new Messenger(new Message("The word '" + name + "' has been added."))
+note right of SearchAddConfirmScene : return new Prompt("Command:")
+note right of ReviewWordsScene : Messenger messenger = new Messenger()\nif (context.getWordRepository().size() == 0) {\n    messenger.add(new Message("You don't have any words."))\n} else {\n    messenger.add(new Message("Are you ready for the review test?"))\n    if (context.getTempData(AppContextKey.LATEST_POINT) != null \n            && context.getTempData(AppContextKey.LATEST_NUM_OF_QUESTIONS) != null) {\n        messenger.add(\n                new Message("Latest point: "\n                        + (int) context.getTempData(AppContextKey.LATEST_POINT)\n                        + "/"\n                        + (int) context.getTempData(AppContextKey.LATEST_NUM_OF_QUESTIONS)))\n    } else {\n        messenger.add(new Message("Latest point: 0/0"))\n    }\n}\nreturn messenger
+note right of ReviewWordsScene : return new Prompt("Answer: ")
+note right of QuestionScene : AppContext context = getContext()\nif (isShowingExamOver(context)) {\n    new EndQuestionOption().action(context)\n    return\n}\nif (isShowingResult(context)) {\n    new ContinueQuestionOption().action(context)\n    return\n}\nQuizSession session = context.getTempData(AppContextKey.ACTIVE_QUIZ_SESSION)\nif (session == null || session.getQuestions().isEmpty()) {\n    return\n}\nint questionIndex = getQuestionIndex(context)\nif (questionIndex >= session.getQuestions().size()) {\n    return\n}\nQuestion current = session.getQuestions().get(questionIndex)\nString answer = input == null ? "" : input.trim()\ncheckAnswer(context, current, answer)\ncontext.putTempData(AppContextKey.QUESTION_SHOWING_RESULT, true)
+note right of QuestionScene : Messenger messenger = new Messenger()\nQuizSession session = context.getTempData(AppContextKey.ACTIVE_QUIZ_SESSION)\nif (isShowingExamOver(context)) {\n    int latestPoint = getLatestPoint(context)\n    int latestNumOfQuestions = getLatestNumOfQuestions(context)\n    messenger.add(new Message("The exam is over!"))\n    messenger.add(new Message("You got " + latestPoint + "/" + latestNumOfQuestions + " point."))\n} else if (session == null || session.getQuestions().isEmpty()) {\n    messenger.add(new Message("No questions available."))\n} else if (isShowingResult(context)) {\n    String resultMessage = (String) context.getTempData(AppContextKey.QUESTION_RESULT_MESSAGE)\n    messenger.add(new Message(resultMessage == null ? "" : resultMessage))\n}else{\n    int remaining = session.getQuestions().size() - getQuestionIndex(context)\n    messenger.add(new Message("Point: " + getPoint(context)))\n    messenger.add(new Message("Remaining: " + remaining))\n}\nreturn messenger
+note right of QuestionScene : if (isShowingResult(context) || isShowingExamOver(context)) {\n    return Array(DefaultMenuOptionKey.PREVIOUS_PAGE)\n}
+note right of QuestionScene : QuizSession session = (QuizSession) context.getTempData(AppContextKey.ACTIVE_QUIZ_SESSION)\nif (isShowingExamOver(context) || isShowingResult(context) || \n    session == null || session.getQuestions().isEmpty()) {\n    return new Prompt("Command:")\n}\n\nint questionIndex = getQuestionIndex(context)\nQuestion question = session.getQuestions().get(questionIndex)\nString promptText = (questionIndex + 1) + ". Question: "\n        + question.getWordBlank() + ": " + question.getDefinitionHint()\n        + System.lineSeparator() + "Answer:"\nreturn new Prompt(promptText)
+note right of ExitDefaultMenuOptionFactory : return new Exit()
+note right of PreviousPageDefaultMenuOptionFactory : return new PreviousPage()
+note right of MenuBuilder : options.add(option)\nreturn this
+note right of MenuBuilder : new Menu(options.toArray())
+note right of Messenger : messages.add(message)
+note right of Scene : manager = context.getManager();\nmanager.push(id);
+note right of Scene : manager = context.getManager()\nchildren = manager.resolveChildren(getId())\ndefaultMenuOptions = manager.resolveDefaultMenuOptions()\nhiddenDefaultMenuOptions = hiddenDefaultMenuOptions(context)\n\nMenuBuilder builder = new MenuBuilder()\nfor (Scene child : children) {\n    builder.add(child)\n}\n\ncontributeMenuOptions(builder, context)\nfor (entry in defaultMenuOptions) {\n    if (hiddenDefaultMenuOptions.contains(entry.getKey())) {\n        entry.getValue().setVisible(false)\n    }\n    builder.add(entry.getValue())\n}\n\nreturn builder\n        .build()
+note right of SceneManager : SceneId[] children = sceneGraph.getChildren()\nif (!children.contains(childSceneId)) {\n        children.add(childSceneId)\n}
+note right of SceneManager : SceneId[] childIds = sceneGraph.getOrDefault(parentSceneId)\nchildren = []\nfor (SceneId childId : childIds) {\n    children.add(reslove(childId))\n}\nreturn children
+note right of SceneManager : registeredDefaultMenuOptionFactories.put(option, factory)
+note right of AddWordsScene : wordsAddedLine = null\nwordsNotFoundLine = null
+note right of SearchWordsScene : lastFoundWord = null\nnotFoundName = null
+note right of DeleteWordsScene : wordsDeletedLine = null\nwordsNotFoundLine = null
+note right of SearchAddConfirmScene : added = false\ncontext.removeTempData(AppContextKey.PENDING_WORD_FROM_SEARCH)\ncontext.removeTempData(AppContextKey.ADDED_WORD)
+note right of SearchAddConfirmScene : manager().goBack()
+note right of SearchAddConfirmScene :  builder.add(new ConfirmSearchAddOption())
+note right of SearchAddConfirmScene : hiddens = []\nhiddens.add(DefaultMenuOptionKey.PREVIOUS_PAGE)
+note right of ContinueQuestionOption : if (isShowingExamOver(context)) {\n    clearQuestionState(context)\n    context.getManager().goBack()\n    return\n}\n\nQuizSession session = context.getTempData(AppContextKey.ACTIVE_QUIZ_SESSION)\nif (session == null || session.getQuestions().isEmpty()) {\n    return\n}\nint nextIndex = getQuestionIndex(context) + 1\nif (nextIndex >= session.getQuestions().size()) {\n    context.putTempData(AppContextKey.LATEST_POINT, getPoint(context))\n    context.putTempData(AppContextKey.LATEST_NUM_OF_QUESTIONS, session.getQuestions().size())\n    context.removeTempData(AppContextKey.ACTIVE_QUIZ_SESSION)\n    context.putTempData(AppContextKey.QUESTION_SHOWING_RESULT, false)\n    context.putTempData(AppContextKey.QUESTION_SHOWING_EXAM_OVER, true)\n    return\n}\ncontext.putTempData(AppContextKey.QUESTION_INDEX, nextIndex)\ncontext.putTempData(AppContextKey.QUESTION_SHOWING_RESULT, false)
+note right of QuestionScene : context.removeTempData(AppContextKey.QUESTION_POINT)\ncontext.removeTempData(AppContextKey.QUESTION_INDEX)\ncontext.removeTempData(AppContextKey.QUESTION_RESULT_MESSAGE)\ncontext.removeTempData(AppContextKey.QUESTION_SHOWING_RESULT)\ncontext.removeTempData(AppContextKey.QUESTION_SHOWING_EXAM_OVER)
+note right of EndQuestionOption : clearQuestionState(context);\nmanager().goBack();
+note right of QuizSession : int limit = Math.min(10, shuffled.size())\nList<Question> questions = new ArrayList<>()\nfor (int i = 0 i < limit i++) {\n    Question question = Question.fromWord(shuffled.get(i), random)\n    if (question != null) {\n        questions.add(question)\n    }\n}\nreturn new QuizSession(questions)
+@enduml

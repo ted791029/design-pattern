@@ -15,8 +15,8 @@
         <module name="GYM5-rpg" />
         <module name="GYM9-genetic-algorithm" />
         <module name="GYM9B-ascii-ui-theme" />
+        <module name="GYM10A" />
         <module name="GYM6A-friends-relationship-analyzer" />
-        <module name="GYM6C-logger" />
         <module name="GYM5C-map-game" />
         <module name="GYM9A-computation-model" />
         <module name="GYM7" />
@@ -31,6 +31,8 @@
       <module name="B-shortcut-key" target="17" />
       <module name="GYM3-card-game-framwork" target="17" />
       <module name="GYM6" target="17" />
+      <module name="GYM6C-logger" target="17" />
+      <module name="vocabulary-learning-system" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

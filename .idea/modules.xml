@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GYM10A/GYM10A.iml" filepath="$PROJECT_DIR$/GYM10A/GYM10A.iml" />
       <module fileurl="file://$PROJECT_DIR$/GYM6A-friends-relationship-analyzer/GYM6A-friends-relationship-analyzer.iml" filepath="$PROJECT_DIR$/GYM6A-friends-relationship-analyzer/GYM6A-friends-relationship-analyzer.iml" />
     </modules>
   </component>

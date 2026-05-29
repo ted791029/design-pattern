@@ -1,0 +1,60 @@
+{
+  "light": {
+    "description": "The natural agent that stimulates sight and makes things visible.",
+    "definitions": {
+      "verb": "To provide with light or lighting; illuminate.",
+      "adjective": "Having a considerable or sufficient amount of natural light; not dark.",
+      "noun": "The natural agent that stimulates sight and makes things visible."
+    }
+  },
+  "stand": {
+    "description": "Have or maintain an upright position, supported by one's feet.",
+    "definitions": {
+      "noun": "An act of standing; an attitude or position of the body.",
+      "verb": "Have or maintain an upright position, supported by one's feet."
+    }
+  },
+  "work": {
+    "description": "Activity involving mental or physical effort done to achieve a purpose.",
+    "definitions": {
+      "verb": "Be engaged in physical or mental activity in order to achieve a purpose or result; do work.",
+      "noun": "Activity involving mental or physical effort done in order to achieve a purpose or result."
+    }
+  },
+  "point": {
+    "description": "A particular spot, place, or position.",
+    "definitions": {
+      "noun": "A particular spot, place, or moment.",
+      "verb": "A particular spot, place, or moment."
+    }
+  },
+  "lead": {
+    "description": "Cause a person or animal to go with one by holding them by the hand, halter, rope, etc. while moving forward.",
+    "definitions": {
+      "verb": "Cause (a person or animal) to go with one by holding them by the hand, a halter, a rope, etc. while moving forward.",
+      "noun": "The initiative in an action; an example for others to follow."
+    }
+  },
+  "play": {
+    "description": "Engage in activity for enjoyment and recreation rather than a serious or practical purpose.",
+    "definitions": {
+      "verb": "Engage in activity for enjoyment and recreation rather than a serious or practical purpose.",
+      "noun": "Activity engaged in for enjoyment and recreation."
+    }
+  },
+  "change": {
+    "description": "Make or become different.",
+    "definitions": {
+      "verb": "Make or become different.",
+      "noun": "An act or process through which something becomes different."
+    }
+  },
+  "present": {
+    "description": "The period of time now occurring.",
+    "definitions": {
+      "verb": "Give something to someone formally.",
+      "adjective": "Existing or occurring now.",
+      "noun": "The period of time now occurring."
+    }
+  }
+}

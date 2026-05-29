@@ -4,6 +4,7 @@ import com.ted.app.geneticAlgorithm.*;
 import com.ted.app.geneticAlgorithm.crossoverStrategy.SinglePoint;
 import com.ted.app.geneticAlgorithm.mutationStrategy.Inversion;
 import com.ted.app.geneticAlgorithm.selectionStrategy.Rank;
+import com.ted.app.shoppingRecommendation.*;
 import com.ted.app.util.RandomUtil;
 
 import java.util.*;
